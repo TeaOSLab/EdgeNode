@@ -29,9 +29,9 @@ require (
 	github.com/pires/go-proxyproto v0.6.1
 	github.com/shirou/gopsutil/v3 v3.22.2
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539
-	golang.org/x/net v0.0.0-20220225172249-27dd8689420f
-	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab
-	golang.org/x/text v0.3.7
+	golang.org/x/net v0.7.0
+	golang.org/x/sys v0.5.0
+	golang.org/x/text v0.7.0
 	google.golang.org/grpc v1.45.0
 	gopkg.in/yaml.v3 v3.0.1
 	rogchap.com/v8go v0.7.0
@@ -54,8 +54,8 @@ require (
 	github.com/tklauser/go-sysconf v0.3.9 // indirect
 	github.com/tklauser/numcpus v0.3.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
-	golang.org/x/mod v0.5.1 // indirect
-	golang.org/x/tools v0.1.8 // indirect
+	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
+	golang.org/x/tools v0.1.12 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/genproto v0.0.0-20220317150908-0efb43f6373e // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
