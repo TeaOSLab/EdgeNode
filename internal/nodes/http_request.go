@@ -1688,7 +1688,29 @@ func (this *HTTPRequest) setForwardHeaders(header http.Header) {
 		if ok && len(forwardedFor) > 0 { // already exists
 			_, hasForwardHeader := this.RawReq.Header["X-Forwarded-For"]
 			if hasForwardHeader {
-				header["X-Forwarded-For"] = []string{strings.Join(forwardedFor, ", ") + ", " + rawRemoteAddr}
+				// 限制转发的XFF中地址数量
+				if this.nodeConfig != nil && this.nodeConfig.GlobalServerConfig != nil && this.nodeConfig.GlobalServerConfig.HTTPAll.XFFMaxAddresses > 0 {
+					var maxForwardedAddresses = this.nodeConfig.GlobalServerConfig.HTTPAll.XFFMaxAddresses
+					if maxForwardedAddresses == 1 {
+						forwardedFor = nil
+					} else {
+						var forwardedAddresses []string
+						for _, forwardedHeader := range forwardedFor {
+							if len(forwardedHeader) > 0 {
+								forwardedAddresses = append(forwardedAddresses, strings.Split(forwardedHeader, ", ")...)
+							}
+						}
+						if len(forwardedAddresses) >= maxForwardedAddresses {
+							forwardedFor = []string{strings.Join(forwardedAddresses[:maxForwardedAddresses-1], ", ")}
+						}
+					}
+				}
+
+				if len(forwardedFor) > 0 {
+					header["X-Forwarded-For"] = []string{strings.Join(forwardedFor, ", ") + ", " + rawRemoteAddr}
+				} else {
+					header["X-Forwarded-For"] = []string{rawRemoteAddr}
+				}
 			}
 		} else {
 			var clientRemoteAddr = this.requestRemoteAddr(true)
