@@ -530,6 +530,7 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 			if firstRangeEnd > 0 {
 				rangeEnd = firstRangeEnd
 			}
+
 			err = reader.ReadBodyRange(bodyBuf.Bytes, ranges[0].Start(), rangeEnd, func(n int) (goNext bool, readErr error) {
 				_, readErr = this.writer.Write(bodyBuf.Bytes[:n])
 				if readErr != nil {
@@ -725,7 +726,7 @@ func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key s
 			r2, findOk := partialReader.Ranges().FindRangeAtPosition(r.Start())
 			if findOk && r2.Length() >= (256<<10) /* worth reading */ {
 				isOk = true
-				ranges[0] = [2]int64{r.Start(), partialReader.BodySize()} // Content-Range: bytes 0-[CONTENT_LENGTH - 1]/CONTENT_LENGTH
+				ranges[0] = [2]int64{r.Start(), partialReader.BodySize() - 1} // Content-Range: bytes 0-[CONTENT_LENGTH - 1]/CONTENT_LENGTH
 
 				pReader.SetNextReader(NewHTTPRequestPartialReader(this, r2.End(), partialReader))
 				return pReader, ranges, r2.End() - 1 /* not include last byte */, true
