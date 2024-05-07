@@ -722,14 +722,20 @@ func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key s
 		ranges[0][1] < 0 &&
 		!partialReader.IsCompleted() {
 		if partialReader.BodySize() > 0 {
-			var r = ranges[0]
-			r2, findOk := partialReader.Ranges().FindRangeAtPosition(r.Start())
-			if findOk && r2.Length() >= (256<<10) /* worth reading */ {
-				isOk = true
-				ranges[0] = [2]int64{r.Start(), partialReader.BodySize() - 1} // Content-Range: bytes 0-[CONTENT_LENGTH - 1]/CONTENT_LENGTH
+			var options = this.ReqServer.HTTPCachePolicy.Options
+			if options != nil {
+				fileStorage, isFileStorage := storage.(*caches.FileStorage)
+				if isFileStorage && fileStorage.Options() != nil && fileStorage.Options().EnableIncompletePartialContent {
+					var r = ranges[0]
+					r2, findOk := partialReader.Ranges().FindRangeAtPosition(r.Start())
+					if findOk && r2.Length() >= (256<<10) /* worth reading */ {
+						isOk = true
+						ranges[0] = [2]int64{r.Start(), partialReader.BodySize() - 1} // Content-Range: bytes 0-[CONTENT_LENGTH - 1]/CONTENT_LENGTH
 
-				pReader.SetNextReader(NewHTTPRequestPartialReader(this, r2.End(), partialReader))
-				return pReader, ranges, r2.End() - 1 /* not include last byte */, true
+						pReader.SetNextReader(NewHTTPRequestPartialReader(this, r2.End(), partialReader))
+						return pReader, ranges, r2.End() - 1 /* not include last byte */, true
+					}
+				}
 			}
 		}
 		return

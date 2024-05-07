@@ -1004,6 +1004,11 @@ func (this *FileStorage) CanSendfile() bool {
 	return this.options.EnableSendfile
 }
 
+// Options 获取当前缓存存储的选项
+func (this *FileStorage) Options() *serverconfigs.HTTPFileCacheStorage {
+	return this.options
+}
+
 // 获取Key对应的文件路径
 func (this *FileStorage) keyPath(key string) (hash string, path string, diskIsFull bool) {
 	hash = stringutil.Md5(key)
