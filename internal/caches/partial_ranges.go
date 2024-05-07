@@ -5,6 +5,7 @@ package caches
 import (
 	"bytes"
 	"encoding/json"
+	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
 	"github.com/iwind/TeaGo/types"
 	"strconv"
 )
@@ -101,7 +102,6 @@ func (this *PartialRanges) Add(begin int64, end int64) {
 	}
 
 	// insert
-	// TODO 将来使用二分法改进
 	var index = -1
 	for i, r := range this.Ranges {
 		if r[0] > begin || (r[0] == begin && r[1] >= end) {
@@ -127,7 +127,6 @@ func (this *PartialRanges) Contains(begin int64, end int64) bool {
 		return false
 	}
 
-	// TODO 使用二分法查找改进性能
 	for _, r2 := range this.Ranges {
 		if r2[0] <= begin && r2[1] >= end {
 			return true
@@ -143,7 +142,6 @@ func (this *PartialRanges) Nearest(begin int64, end int64) (r [2]int64, ok bool)
 		return
 	}
 
-	// TODO 使用二分法查找改进性能
 	for _, r2 := range this.Ranges {
 		if r2[0] <= begin && r2[1] > begin {
 			r = [2]int64{begin, this.min(end, r2[1])}
@@ -151,6 +149,21 @@ func (this *PartialRanges) Nearest(begin int64, end int64) (r [2]int64, ok bool)
 			return
 		}
 	}
+	return
+}
+
+// FindRangeAtPosition 查找在某个位置上的范围
+func (this *PartialRanges) FindRangeAtPosition(position int64) (r rangeutils.Range, ok bool) {
+	if len(this.Ranges) == 0 || position < 0 {
+		return
+	}
+
+	for _, r2 := range this.Ranges {
+		if r2[0] <= position && r2[1] > position {
+			return [2]int64{position, r2[1]}, true
+		}
+	}
+
 	return
 }
 

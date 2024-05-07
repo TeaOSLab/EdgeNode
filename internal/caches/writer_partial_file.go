@@ -30,6 +30,8 @@ type PartialFileWriter struct {
 
 	ranges    *PartialRanges
 	rangePath string
+
+	writtenBytes int64
 }
 
 func NewPartialFileWriter(rawWriter *fsutils.File, key string, expiredAt int64, metaHeaderSize int, metaBodySize int64, isNew bool, isPartial bool, bodyOffset int64, ranges *PartialRanges, endFunc func()) *PartialFileWriter {
@@ -154,12 +156,24 @@ func (this *PartialFileWriter) WriteAt(offset int64, data []byte) error {
 		this.bodyOffset = SizeMeta + int64(keyLength) + this.headerSize
 	}
 
-	_, err := this.rawWriter.WriteAt(data, this.bodyOffset+offset)
+	n, err := this.rawWriter.WriteAt(data, this.bodyOffset+offset)
 	if err != nil {
 		return err
 	}
 
 	this.ranges.Add(offset, end)
+
+	// 保存ranges内容到文件，当新增数据达到一定量时就更新，是为了及时更新ranges文件，以便于其他请求能够及时读取到已经缓存的部分内容
+	this.writtenBytes += int64(n)
+	if this.writtenBytes > (1 << 20) {
+		this.writtenBytes = 0
+		if len(this.rangePath) > 0 {
+			if this.bodySize > 0 {
+				this.ranges.BodySize = this.bodySize
+			}
+			_ = this.ranges.WriteToFile(this.rangePath)
+		}
+	}
 
 	return nil
 }
@@ -195,7 +209,9 @@ func (this *PartialFileWriter) Close() error {
 		this.endFunc()
 	})
 
-	this.ranges.BodySize = this.bodySize
+	if this.bodySize > 0 {
+		this.ranges.BodySize = this.bodySize
+	}
 	err := this.ranges.WriteToFile(this.rangePath)
 	if err != nil {
 		_ = this.rawWriter.Close()

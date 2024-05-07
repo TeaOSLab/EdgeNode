@@ -401,7 +401,7 @@ func (this *HTTPRequest) doBegin() {
 
 	// Reverse Proxy
 	if this.reverseProxyRef != nil && this.reverseProxyRef.IsOn && this.reverseProxy != nil && this.reverseProxy.IsOn {
-		this.doReverseProxy()
+		_ = this.doReverseProxy(true)
 		return
 	}
 
