@@ -2,6 +2,7 @@ package caches
 
 import (
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"github.com/iwind/TeaGo/Tea"
 	"os"
 	"testing"
@@ -36,7 +37,7 @@ func TestFileReader(t *testing.T) {
 	defer func() {
 		_ = fp.Close()
 	}()
-	reader := NewFileReader(fp)
+	reader := NewFileReader(fsutils.NewFile(fp, fsutils.FlagRead))
 	err = reader.Init()
 	if err != nil {
 		t.Fatal(err)
@@ -75,7 +76,7 @@ func TestFileReader_ReadHeader(t *testing.T) {
 	defer func() {
 		_ = fp.Close()
 	}()
-	var reader = NewFileReader(fp)
+	var reader = NewFileReader(fsutils.NewFile(fp, fsutils.FlagRead))
 	err = reader.Init()
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -138,7 +139,7 @@ func TestFileReader_Range(t *testing.T) {
 	defer func() {
 		_ = fp.Close()
 	}()
-	reader := NewFileReader(fp)
+	reader := NewFileReader(fsutils.NewFile(fp, fsutils.FlagRead))
 	err = reader.Init()
 	if err != nil {
 		t.Fatal(err)

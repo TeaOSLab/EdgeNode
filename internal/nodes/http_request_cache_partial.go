@@ -42,8 +42,25 @@ func (this *HTTPRequestPartialReader) Read(p []byte) (n int, err error) {
 			err = io.ErrUnexpectedEOF
 			return
 		}
+
 		this.resp = resp
 
+		// 对比Content-MD5
+		partialReader, ok := this.cacheReader.(*caches.PartialFileReader)
+		if ok {
+			if partialReader.Ranges().Version >= 2 && resp.Header.Get("Content-MD5") != partialReader.Ranges().ContentMD5 {
+				err = io.ErrUnexpectedEOF
+
+				var storage = this.req.writer.cacheStorage
+				if storage != nil {
+					_ = storage.Delete(this.req.cacheKey + caches.SuffixPartial)
+				}
+
+				return
+			}
+		}
+
+		// 准备写入
 		this.prepareCacheWriter()
 	}
 
