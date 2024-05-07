@@ -11,6 +11,8 @@ import (
 )
 
 type FileReader struct {
+	BaseReader
+
 	fp *fsutils.File
 
 	openFile      *OpenFile
@@ -342,6 +344,33 @@ func (this *FileReader) ReadBodyRange(buf []byte, start int64, end int64, callba
 	}
 
 	isOk = true
+
+	// 读取下一个Reader
+	if this.nextReader != nil {
+		defer func() {
+			_ = this.nextReader.Close()
+		}()
+
+		for {
+			var n int
+			n, err = this.nextReader.Read(buf)
+			if n > 0 {
+				goNext, writeErr := callback(n)
+				if writeErr != nil {
+					return writeErr
+				}
+				if !goNext {
+					break
+				}
+			}
+			if err != nil {
+				if err != io.EOF {
+					return err
+				}
+				break
+			}
+		}
+	}
 
 	return nil
 }

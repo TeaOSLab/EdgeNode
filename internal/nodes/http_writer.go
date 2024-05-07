@@ -88,6 +88,8 @@ type HTTPWriter struct {
 
 	cacheReader       caches.Reader
 	cacheReaderSuffix string
+
+	statusSent bool
 }
 
 // NewHTTPWriter 包装对象
@@ -844,6 +846,11 @@ func (this *HTTPWriter) SetSentHeaderBytes(sentHeaderBytes int64) {
 
 // WriteHeader 写入状态码
 func (this *HTTPWriter) WriteHeader(statusCode int) {
+	if this.statusSent {
+		return
+	}
+	this.statusSent = true
+
 	if this.rawWriter != nil {
 		this.rawWriter.WriteHeader(statusCode)
 	}

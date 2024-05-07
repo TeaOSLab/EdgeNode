@@ -1,6 +1,9 @@
 package caches
 
-import "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
+import (
+	"github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
+	"io"
+)
 
 type ReaderFunc func(n int) (goNext bool, err error)
 
@@ -40,6 +43,9 @@ type Reader interface {
 
 	// ContainsRange 是否包含某个区间内容
 	ContainsRange(r rangeutils.Range) (r2 rangeutils.Range, ok bool)
+
+	// SetNextReader 设置下一个内容Reader
+	SetNextReader(nextReader io.ReadCloser)
 
 	// Close 关闭
 	Close() error

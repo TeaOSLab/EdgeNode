@@ -21,7 +21,8 @@ import (
 )
 
 // 处理反向代理
-func (this *HTTPRequest) doReverseProxy() {
+// writeToClient 读取响应并发送到客户端
+func (this *HTTPRequest) doReverseProxy(writeToClient bool) (resultResp *http.Response) {
 	if this.reverseProxy == nil {
 		return
 	}
@@ -33,8 +34,9 @@ func (this *HTTPRequest) doReverseProxy() {
 	var failStatusCode int
 
 	for i := 0; i < retries; i++ {
-		originId, lnNodeId, shouldRetry := this.doOriginRequest(failedOriginIds, failedLnNodeIds, i == 0, i == retries-1, &failStatusCode)
+		originId, lnNodeId, shouldRetry, resp := this.doOriginRequest(failedOriginIds, failedLnNodeIds, i == 0, i == retries-1, &failStatusCode, writeToClient)
 		if !shouldRetry {
+			resultResp = resp
 			break
 		}
 		if originId > 0 {
@@ -44,10 +46,12 @@ func (this *HTTPRequest) doReverseProxy() {
 			failedLnNodeIds = append(failedLnNodeIds, lnNodeId)
 		}
 	}
+
+	return
 }
 
 // 请求源站
-func (this *HTTPRequest) doOriginRequest(failedOriginIds []int64, failedLnNodeIds []int64, isFirstTry bool, isLastRetry bool, failStatusCode *int) (originId int64, lnNodeId int64, shouldRetry bool) {
+func (this *HTTPRequest) doOriginRequest(failedOriginIds []int64, failedLnNodeIds []int64, isFirstTry bool, isLastRetry bool, failStatusCode *int, writeToClient bool) (originId int64, lnNodeId int64, shouldRetry bool, resultResp *http.Response) {
 	// 对URL的处理
 	var stripPrefix = this.reverseProxy.StripPrefix
 	var requestURI = this.reverseProxy.RequestURI
@@ -345,7 +349,9 @@ func (this *HTTPRequest) doOriginRequest(failedOriginIds []int64, failedLnNodeId
 	if resp != nil && resp.Body != nil {
 		defer func() {
 			if !respBodyIsClosed {
-				_ = resp.Body.Close()
+				if writeToClient {
+					_ = resp.Body.Close()
+				}
 			}
 		}()
 	}
@@ -420,6 +426,11 @@ func (this *HTTPRequest) doOriginRequest(failedOriginIds []int64, failedLnNodeId
 
 	if resp == nil {
 		this.write50x(requestErr, http.StatusBadGateway, "Failed to read origin site", "源站读取失败", true)
+		return
+	}
+
+	if !writeToClient {
+		resultResp = resp
 		return
 	}
 

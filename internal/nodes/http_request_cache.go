@@ -282,6 +282,7 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 	// 检查正常的文件
 	var isPartialCache = false
 	var partialRanges []rangeutils.Range
+	var firstRangeEnd int64
 	if reader == nil {
 		reader, err = storage.OpenReader(key, useStale, false)
 		if err != nil && caches.IsBusyError(err) {
@@ -297,7 +298,7 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 			}
 
 			if len(rangeHeader) > 0 {
-				pReader, ranges, goNext := this.tryPartialReader(storage, key, useStale, rangeHeader, this.cacheRef.ForcePartialContent)
+				pReader, ranges, rangeEnd, goNext := this.tryPartialReader(storage, key, useStale, rangeHeader, this.cacheRef.ForcePartialContent)
 				if !goNext {
 					this.cacheRef = nil
 					return
@@ -306,6 +307,7 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 					isPartialCache = true
 					reader = pReader
 					partialRanges = ranges
+					firstRangeEnd = rangeEnd
 					err = nil
 				}
 			}
@@ -523,7 +525,12 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 
 			var pool = this.bytePool(fileSize)
 			var bodyBuf = pool.Get()
-			err = reader.ReadBodyRange(bodyBuf.Bytes, ranges[0].Start(), ranges[0].End(), func(n int) (goNext bool, readErr error) {
+
+			var rangeEnd = ranges[0].End()
+			if firstRangeEnd > 0 {
+				rangeEnd = firstRangeEnd
+			}
+			err = reader.ReadBodyRange(bodyBuf.Bytes, ranges[0].Start(), rangeEnd, func(n int) (goNext bool, readErr error) {
 				_, readErr = this.writer.Write(bodyBuf.Bytes[:n])
 				if readErr != nil {
 					return false, errWritingToClient
@@ -542,7 +549,8 @@ func (this *HTTPRequest) doCacheRead(useStale bool) (shouldStop bool) {
 				if !this.canIgnore(err) {
 					remotelogs.WarnServer("HTTP_REQUEST_CACHE", this.URL()+": read from cache failed: "+err.Error())
 				}
-				return
+
+				return true
 			}
 		} else if len(ranges) > 1 {
 			var boundary = httpRequestGenBoundary()
@@ -672,7 +680,7 @@ func (this *HTTPRequest) addExpiresHeader(expiresAt int64) {
 }
 
 // 尝试读取区间缓存
-func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key string, useStale bool, rangeHeader string, forcePartialContent bool) (resultReader caches.Reader, ranges []rangeutils.Range, goNext bool) {
+func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key string, useStale bool, rangeHeader string, forcePartialContent bool) (resultReader caches.Reader, ranges []rangeutils.Range, firstRangeEnd int64, goNext bool) {
 	goNext = true
 
 	// 尝试读取Partial cache
@@ -712,6 +720,17 @@ func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key s
 		len(ranges) > 0 &&
 		ranges[0][1] < 0 &&
 		!partialReader.IsCompleted() {
+		if partialReader.BodySize() > 0 {
+			var r = ranges[0]
+			r2, findOk := partialReader.Ranges().FindRangeAtPosition(r.Start())
+			if findOk && r2.Length() >= (256<<10) /* worth reading */ {
+				isOk = true
+				ranges[0] = [2]int64{r.Start(), partialReader.BodySize()} // Content-Range: bytes 0-[BODY_LENGTH]
+
+				pReader.SetNextReader(NewHTTPRequestPartialReader(this, r2.End(), partialReader))
+				return pReader, ranges, r2.End() - 1 /* not include last byte */, true
+			}
+		}
 		return
 	}
 
@@ -730,5 +749,5 @@ func (this *HTTPRequest) tryPartialReader(storage caches.StorageInterface, key s
 	}
 
 	isOk = true
-	return pReader, ranges, true
+	return pReader, ranges, -1, true
 }
