@@ -9,6 +9,7 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/rpc"
+	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/types"
 	"net/http"
@@ -31,11 +32,20 @@ type recordIPTask struct {
 	sourceHTTPFirewallRuleSetId   int64
 }
 
-var recordIPTaskChan = make(chan *recordIPTask, 2048)
+var recordIPTaskChan = make(chan *recordIPTask, 512)
 
 func init() {
 	if !teaconst.IsMain {
 		return
+	}
+
+	var memGB = memutils.SystemMemoryGB()
+	if memGB > 16 {
+		recordIPTaskChan = make(chan *recordIPTask, 4<<10)
+	} else if memGB > 8 {
+		recordIPTaskChan = make(chan *recordIPTask, 2<<10)
+	} else if memGB > 4 {
+		recordIPTaskChan = make(chan *recordIPTask, 1<<10)
 	}
 
 	events.On(events.EventLoaded, func() {
@@ -95,9 +105,15 @@ func init() {
 					for _, pbItem := range pbItemMap {
 						pbItems = append(pbItems, pbItem)
 					}
-					_, err = rpcClient.IPItemRPC.CreateIPItems(rpcClient.Context(), &pb.CreateIPItemsRequest{IpItems: pbItems})
-					if err != nil {
-						remotelogs.Error("WAF_RECORD_IP_ACTION", "create ip item failed: "+err.Error())
+
+					for i := 0; i < 5; /* max tries */ i++ {
+						_, err = rpcClient.IPItemRPC.CreateIPItems(rpcClient.Context(), &pb.CreateIPItemsRequest{IpItems: pbItems})
+						if err != nil {
+							remotelogs.Error("WAF_RECORD_IP_ACTION", "create ip item failed: "+err.Error())
+							time.Sleep(1 * time.Second)
+						} else {
+							break
+						}
 					}
 				} else {
 					time.Sleep(1 * time.Second)
@@ -136,7 +152,6 @@ func (this *RecordIPAction) WillChange() bool {
 
 func (this *RecordIPAction) Perform(waf *WAF, group *RuleGroup, set *RuleSet, request requests.Request, writer http.ResponseWriter) PerformResult {
 	var ipListId = this.IPListId
-
 
 	if ipListId <= 0 || firewallconfigs.IsGlobalListId(ipListId) {
 		// server or policy list ids
