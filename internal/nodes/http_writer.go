@@ -403,6 +403,11 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 					return
 				}
 				partialWriter.SetBodyLength(total)
+
+				var contentMD5 = this.rawWriter.Header().Get("Content-MD5")
+				if len(contentMD5) > 0 {
+					partialWriter.SetContentMD5(contentMD5)
+				}
 			}
 			var filterReader = readers.NewFilterReaderCloser(resp.Body)
 			this.cacheIsFinished = true
@@ -462,6 +467,11 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 				// 写入total
 				if !writtenTotal && total > 0 {
 					partialWriter.SetBodyLength(total)
+					var contentMD5 = this.rawWriter.Header().Get("Content-MD5")
+					if len(contentMD5) > 0 {
+						partialWriter.SetContentMD5(contentMD5)
+					}
+
 					writtenTotal = true
 				}
 

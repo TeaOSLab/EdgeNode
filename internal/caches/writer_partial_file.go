@@ -7,6 +7,7 @@ import (
 	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"github.com/iwind/TeaGo/types"
 	"io"
+	"strings"
 	"sync"
 )
 
@@ -181,6 +182,14 @@ func (this *PartialFileWriter) WriteAt(offset int64, data []byte) error {
 // SetBodyLength 设置内容总长度
 func (this *PartialFileWriter) SetBodyLength(bodyLength int64) {
 	this.bodySize = bodyLength
+}
+
+// SetContentMD5 设置内容MD5
+func (this *PartialFileWriter) SetContentMD5(contentMD5 string) {
+	if strings.Contains(contentMD5, "\n") || len(contentMD5) > 128 {
+		return
+	}
+	this.ranges.ContentMD5 = contentMD5
 }
 
 // WriteBodyLength 写入Body长度数据

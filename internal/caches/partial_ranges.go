@@ -12,16 +12,17 @@ import (
 
 // PartialRanges 内容分区范围定义
 type PartialRanges struct {
-	Version  int        `json:"version"`  // 版本号
-	Ranges   [][2]int64 `json:"ranges"`   // 范围
-	BodySize int64      `json:"bodySize"` // 总长度
+	Version    int        `json:"version"`    // 版本号
+	Ranges     [][2]int64 `json:"ranges"`     // 范围
+	BodySize   int64      `json:"bodySize"`   // 总长度
+	ContentMD5 string     `json:"contentMD5"` // 内容md5
 }
 
 // NewPartialRanges 获取新对象
 func NewPartialRanges(expiresAt int64) *PartialRanges {
 	return &PartialRanges{
 		Ranges:  [][2]int64{},
-		Version: 1,
+		Version: 2,
 	}
 }
 
@@ -46,6 +47,8 @@ func NewPartialRangesFromData(data []byte) (*PartialRanges, error) {
 				if commaIndex > 0 {
 					rs.Ranges = append(rs.Ranges, [2]int64{types.Int64(line[colonIndex+1 : commaIndex]), types.Int64(line[commaIndex+1:])})
 				}
+			case "m": // Content-MD5
+				rs.ContentMD5 = string(line[colonIndex+1:])
 			}
 		}
 		data = data[index+1:]
@@ -171,6 +174,9 @@ func (this *PartialRanges) FindRangeAtPosition(position int64) (r rangeutils.Ran
 func (this *PartialRanges) String() string {
 	var s = "v:" + strconv.Itoa(this.Version) + "\n" + // version
 		"b:" + this.formatInt64(this.BodySize) + "\n" // bodySize
+	if len(this.ContentMD5) > 0 {
+		s += "m:" + this.ContentMD5 + "\n" // Content-MD5
+	}
 	for _, r := range this.Ranges {
 		s += "r:" + this.formatInt64(r[0]) + "," + this.formatInt64(r[1]) + "\n" // range
 	}
