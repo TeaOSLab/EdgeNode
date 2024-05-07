@@ -294,6 +294,10 @@ func (this *PartialFileWriter) IsNew() bool {
 	return this.isNew && len(this.ranges.Ranges) == 0
 }
 
+func (this *PartialFileWriter) Ranges() *PartialRanges {
+	return this.ranges
+}
+
 func (this *PartialFileWriter) remove() {
 	_ = fsutils.Remove(this.rawWriter.Name())
 

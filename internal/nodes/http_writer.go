@@ -355,6 +355,19 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 	}
 	this.cacheWriter = cacheWriter
 
+	// 对比Content-MD5
+	{
+		partialWriter, ok := cacheWriter.(*caches.PartialFileWriter)
+		if ok {
+			if partialWriter.Ranges().Version >= 2 && partialWriter.Ranges().ContentMD5 != this.Header().Get("Content-MD5") {
+				_ = this.cacheWriter.Discard()
+				this.cacheWriter = nil
+				return
+			}
+		}
+	}
+
+	// 判断是否新创建的缓存文件
 	if this.isPartial {
 		this.partialFileIsNew = cacheWriter.(*caches.PartialFileWriter).IsNew()
 	}
