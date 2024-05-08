@@ -33,39 +33,39 @@ func (this *Piece[T]) Add(key uint64, item *Item[T]) (ok bool) {
 
 	this.locker.Lock()
 	oldItem, exists := this.m[key]
-	if exists && oldItem.expiredAt == item.expiredAt {
+	if exists && oldItem.expiresAt == item.expiresAt {
 		this.locker.Unlock()
 		return true
 	}
 	this.m[key] = item
 	this.locker.Unlock()
 
-	this.expiresList.Add(key, item.expiredAt)
+	this.expiresList.Add(key, item.expiresAt)
 
 	return true
 }
 
-func (this *Piece[T]) IncreaseInt64(key uint64, delta T, expiredAt int64, extend bool) (result T) {
+func (this *Piece[T]) IncreaseInt64(key uint64, delta T, expiresAt int64, extend bool) (result T) {
 	this.locker.Lock()
 	item, ok := this.m[key]
-	if ok && item.expiredAt > fasttime.Now().Unix() {
+	if ok && item.expiresAt > fasttime.Now().Unix() {
 		int64Value, isInt64 := any(item.Value).(int64)
 		if isInt64 {
 			result = any(int64Value + any(delta).(int64)).(T)
 		}
 		item.Value = result
 		if extend {
-			item.expiredAt = expiredAt
+			item.expiresAt = expiresAt
 		}
-		this.expiresList.Add(key, expiredAt)
+		this.expiresList.Add(key, expiresAt)
 	} else {
 		if len(this.m) < this.maxItems {
 			result = delta
 			this.m[key] = &Item[T]{
 				Value:     delta,
-				expiredAt: expiredAt,
+				expiresAt: expiresAt,
 			}
-			this.expiresList.Add(key, expiredAt)
+			this.expiresList.Add(key, expiresAt)
 		}
 	}
 	this.locker.Unlock()
@@ -84,7 +84,7 @@ func (this *Piece[T]) Delete(key uint64) {
 func (this *Piece[T]) Read(key uint64) (item *Item[T]) {
 	this.locker.RLock()
 	item = this.m[key]
-	if item != nil && item.expiredAt < fasttime.Now().Unix() {
+	if item != nil && item.expiresAt < fasttime.Now().Unix() {
 		item = nil
 	}
 	this.locker.RUnlock()
@@ -133,6 +133,7 @@ func (this *Piece[T]) Clean() {
 func (this *Piece[T]) Destroy() {
 	this.locker.Lock()
 	this.m = nil
+	this.expiresList.Clean()
 	this.locker.Unlock()
 
 	this.expiresList.Clean()
