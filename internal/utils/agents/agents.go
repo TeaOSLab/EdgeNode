@@ -15,6 +15,7 @@ var AllAgents = []*Agent{
 	NewAgent("sm", []string{".sm.cn."}, nil, []string{"YisouSpider"}),
 	NewAgent("yandex", []string{".yandex.com.", ".yndx.net."}, nil, []string{"Yandex"}),
 	NewAgent("semrush", []string{".semrush.com."}, nil, []string{"SEMrush"}),
+	NewAgent("facebook", []string{"facebook-waw.1-ix.net.", "facebook.b-ix.net."}, nil, []string{"facebook"}),
 }
 
 func IsAgentFromUserAgent(userAgent string) bool {
