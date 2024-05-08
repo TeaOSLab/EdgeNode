@@ -9,6 +9,7 @@ import (
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/nodes"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
+	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
 	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"github.com/iwind/TeaGo/Tea"
 	_ "github.com/iwind/TeaGo/bootstrap"
@@ -22,8 +23,10 @@ import (
 	_ "net/http/pprof"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -31,7 +34,7 @@ func main() {
 	var app = apps.NewAppCmd().
 		Version(teaconst.Version).
 		Product(teaconst.ProductName).
-		Usage(teaconst.ProcessName + " [-v|start|stop|restart|status|quit|test|reload|service|daemon|config|pprof|accesslog|uninstall]").
+		Usage(teaconst.ProcessName + " [-v|start|stop|restart|status|quit|test|reload|service|daemon|config|pprof|top|accesslog|uninstall]").
 		Usage(teaconst.ProcessName + " [trackers|goman|conns|gc|bandwidth|disk|cache.garbage]").
 		Usage(teaconst.ProcessName + " [ip.drop|ip.reject|ip.remove|ip.close] IP")
 
@@ -552,13 +555,44 @@ func main() {
 			return
 		}
 
-		err = os.WriteFile(Tea.Root + "/configs/api_node.yaml", configYAML, 0666)
+		err = os.WriteFile(Tea.Root+"/configs/api_node.yaml", configYAML, 0666)
 		if err != nil {
 			fmt.Println("[ERROR]write config failed: " + err.Error())
 			return
 		}
 
 		fmt.Println("success")
+	})
+	app.On("top", func() {
+		var sock = gosock.NewTmpSock(teaconst.ProcessName)
+		reply, err := sock.Send(&gosock.Command{Code: "pid"})
+		if err != nil {
+			fmt.Println("[ERROR]not started yet")
+			return
+		}
+
+		var pid = maps.NewMap(reply.Params).GetInt("pid")
+		if pid <= 0 {
+			fmt.Println("[ERROR]invalid pid '" + types.String(pid) + "'")
+			return
+		}
+
+		topExe, _ := executils.LookPath("top")
+		if len(topExe) > 0 {
+			if runtime.GOOS == "linux" {
+				err = syscall.Exec(topExe, []string{topExe, "-p", types.String(pid)}, os.Environ())
+			} else if runtime.GOOS == "darwin" {
+				err = syscall.Exec(topExe, []string{topExe, "-pid", types.String(pid)}, os.Environ())
+			} else {
+				fmt.Println("[ERROR]not supported os '" + runtime.GOOS + "'")
+				return
+			}
+			if err != nil {
+				fmt.Println("[ERROR]start failed: " + err.Error())
+			}
+		} else {
+			fmt.Println("[ERROR]could not found 'top' command in this system")
+		}
 	})
 	app.Run(func() {
 		var node = nodes.NewNode()
