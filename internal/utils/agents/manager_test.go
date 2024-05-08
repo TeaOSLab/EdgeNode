@@ -33,5 +33,8 @@ func TestNewManager(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	t.Log(manager.LookupIP("192.168.3.100"))
+	t.Log(manager.LookupIP("192.168.3.100"))   // not found
+	t.Log(manager.LookupIP("66.249.79.25"))    // google
+	t.Log(manager.ContainsIP("66.249.79.25"))  // true
+	t.Log(manager.ContainsIP("66.249.79.255")) // not found
 }
