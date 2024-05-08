@@ -85,45 +85,45 @@ func NewCache[T any](opt ...OptionInterface) *Cache[T] {
 	return cache
 }
 
-func (this *Cache[T]) Write(key string, value T, expiredAt int64) (ok bool) {
+func (this *Cache[T]) Write(key string, value T, expiresAt int64) (ok bool) {
 	if this.isDestroyed {
 		return
 	}
 
 	var currentTimestamp = fasttime.Now().Unix()
-	if expiredAt <= currentTimestamp {
+	if expiresAt <= currentTimestamp {
 		return
 	}
 
-	var maxExpiredAt = currentTimestamp + 30*86400
-	if expiredAt > maxExpiredAt {
-		expiredAt = maxExpiredAt
+	var maxExpiresAt = currentTimestamp + 30*86400
+	if expiresAt > maxExpiresAt {
+		expiresAt = maxExpiresAt
 	}
 	var uint64Key = HashKeyString(key)
 	var pieceIndex = uint64Key % this.countPieces
 	return this.pieces[pieceIndex].Add(uint64Key, &Item[T]{
 		Value:     value,
-		expiredAt: expiredAt,
+		expiresAt: expiresAt,
 	})
 }
 
-func (this *Cache[T]) IncreaseInt64(key string, delta T, expiredAt int64, extend bool) T {
+func (this *Cache[T]) IncreaseInt64(key string, delta T, expiresAt int64, extend bool) T {
 	if this.isDestroyed {
 		return any(0).(T)
 	}
 
 	var currentTimestamp = fasttime.Now().Unix()
-	if expiredAt <= currentTimestamp {
+	if expiresAt <= currentTimestamp {
 		return any(0).(T)
 	}
 
-	var maxExpiredAt = currentTimestamp + 30*86400
-	if expiredAt > maxExpiredAt {
-		expiredAt = maxExpiredAt
+	var maxExpiresAt = currentTimestamp + 30*86400
+	if expiresAt > maxExpiresAt {
+		expiresAt = maxExpiresAt
 	}
 	var uint64Key = HashKeyString(key)
 	var pieceIndex = uint64Key % this.countPieces
-	return this.pieces[pieceIndex].IncreaseInt64(uint64Key, delta, expiredAt, extend)
+	return this.pieces[pieceIndex].IncreaseInt64(uint64Key, delta, expiresAt, extend)
 }
 
 func (this *Cache[T]) Read(key string) (item *Item[T]) {

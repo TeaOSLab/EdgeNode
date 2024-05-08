@@ -1,8 +1,8 @@
 package ttlcache_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/ttlcache"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/TeaOSLab/EdgeNode/internal/zero"
 	"github.com/cespare/xxhash/v2"
 	"runtime"

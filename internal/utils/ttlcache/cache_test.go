@@ -11,6 +11,7 @@ import (
 	"runtime"
 	"runtime/debug"
 	"strconv"
+	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
@@ -26,7 +27,7 @@ func TestNewCache(t *testing.T) {
 	for _, piece := range cache.pieces {
 		if len(piece.m) > 0 {
 			for k, item := range piece.m {
-				t.Log(k, "=>", item.Value, item.expiredAt)
+				t.Log(k, "=>", item.Value, item.expiresAt)
 			}
 		}
 	}
@@ -63,9 +64,25 @@ func TestCache_Memory(t *testing.T) {
 	if memutils.SystemMemoryGB() > 4 {
 		count = 20_000_000
 	}
-	for i := 0; i < count; i++ {
-		cache.Write("a"+strconv.Itoa(i), 1, time.Now().Unix()+int64(rands.Int(0, 300)))
+
+	var concurrent = runtime.NumCPU()
+	var wg = &sync.WaitGroup{}
+	wg.Add(concurrent)
+	var id int64
+	for i := 0; i < concurrent; i++ {
+		go func() {
+			defer wg.Done()
+
+			for {
+				var newId = atomic.AddInt64(&id, 1)
+				if newId > int64(count) {
+					return
+				}
+				cache.Write("a"+types.String(newId), 1, time.Now().Unix()+int64(rands.Int(1, 300)))
+			}
+		}()
 	}
+	wg.Wait()
 
 	func() {
 		var before = time.Now()
@@ -105,14 +122,14 @@ func TestCache_IncreaseInt64(t *testing.T) {
 		var item = cache.Read("a")
 		t.Log(item)
 		a.IsTrue(item.Value == 1)
-		a.IsTrue(item.expiredAt == unixTime+3600)
+		a.IsTrue(item.expiresAt == unixTime+3600)
 	}
 	{
 		cache.IncreaseInt64("a", 1, unixTime+3600+1, true)
 		var item = cache.Read("a")
 		t.Log(item)
 		a.IsTrue(item.Value == 2)
-		a.IsTrue(item.expiredAt == unixTime+3600+1)
+		a.IsTrue(item.expiresAt == unixTime+3600+1)
 	}
 	{
 		cache.Write("b", 1, time.Now().Unix()+3600+2)
@@ -185,7 +202,7 @@ func TestCache_GC(t *testing.T) {
 	for _, p := range cache.pieces {
 		t.Log("expire list:", p.expiresList.Count(), p.expiresList)
 		for k, v := range p.m {
-			t.Log(k, v.Value, v.expiredAt)
+			t.Log(k, v.Value, v.expiresAt)
 		}
 	}
 }
@@ -221,6 +238,21 @@ func TestCacheDestroy(t *testing.T) {
 	t.Log("count:", SharedManager.Count())
 	cache.Destroy()
 	t.Log("count:", SharedManager.Count())
+}
+
+func TestCache_Clean(t *testing.T) {
+	var cache = NewCache[int]()
+	cache.Clean()
+}
+
+func TestCache_Destroy(t *testing.T) {
+	var cache = NewCache[int]()
+	t.Log(SharedManager.Count())
+	for i := 0; i < 1_000; i++ {
+		cache.Write("a"+types.String(i), 1, fasttime.Now().Unix()+3600)
+	}
+	cache.Destroy()
+	t.Log(SharedManager.Count())
 }
 
 func BenchmarkNewCache(b *testing.B) {
