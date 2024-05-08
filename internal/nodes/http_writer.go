@@ -355,21 +355,26 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 	}
 	this.cacheWriter = cacheWriter
 
-	// 对比Content-MD5
-	{
+	if this.isPartial {
 		partialWriter, ok := cacheWriter.(*caches.PartialFileWriter)
 		if ok {
-			if partialWriter.Ranges().Version >= 2 && partialWriter.Ranges().ContentMD5 != this.Header().Get("Content-MD5") {
-				_ = this.cacheWriter.Discard()
-				this.cacheWriter = nil
-				return
+			// 判断是否新创建的缓存文件
+			this.partialFileIsNew = partialWriter.IsNew()
+
+			if this.partialFileIsNew {
+				var contentMD5 = this.rawWriter.Header().Get("Content-MD5")
+				if len(contentMD5) > 0 {
+					partialWriter.SetContentMD5(contentMD5)
+				}
+			} else {
+				// 对比Content-MD5
+				if partialWriter.Ranges().Version >= 2 && partialWriter.Ranges().ContentMD5 != this.Header().Get("Content-MD5") {
+					_ = this.cacheWriter.Discard()
+					this.cacheWriter = nil
+					return
+				}
 			}
 		}
-	}
-
-	// 判断是否新创建的缓存文件
-	if this.isPartial {
-		this.partialFileIsNew = cacheWriter.(*caches.PartialFileWriter).IsNew()
 	}
 
 	// 写入Header
@@ -416,11 +421,6 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 					return
 				}
 				partialWriter.SetBodyLength(total)
-
-				var contentMD5 = this.rawWriter.Header().Get("Content-MD5")
-				if len(contentMD5) > 0 {
-					partialWriter.SetContentMD5(contentMD5)
-				}
 			}
 			var filterReader = readers.NewFilterReaderCloser(resp.Body)
 			this.cacheIsFinished = true
@@ -480,11 +480,6 @@ func (this *HTTPWriter) PrepareCache(resp *http.Response, size int64) {
 				// 写入total
 				if !writtenTotal && total > 0 {
 					partialWriter.SetBodyLength(total)
-					var contentMD5 = this.rawWriter.Header().Get("Content-MD5")
-					if len(contentMD5) > 0 {
-						partialWriter.SetContentMD5(contentMD5)
-					}
-
 					writtenTotal = true
 				}
 
