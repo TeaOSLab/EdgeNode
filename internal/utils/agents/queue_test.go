@@ -34,6 +34,7 @@ func TestParseQueue_ParseIP(t *testing.T) {
 		"42.120.160.1",
 		"42.236.10.98",
 		"124.115.0.100",
+		"185.1.213.197",
 	} {
 		ptr, err := queue.ParseIP(ip)
 		if err != nil {
@@ -58,6 +59,7 @@ func TestParseQueue_ParsePtr(t *testing.T) {
 		{"shenmaspider-42-120-160-1.crawl.sm.cn.", "sm"},
 		{"93-158-161-39.spider.yandex.com.", "yandex"},
 		{"25.bl.bot.semrush.com.", "semrush"},
+		{"facebook-waw.1-ix.net.", "facebook"},
 	} {
 		a.IsTrue(queue.ParsePtr(s[0]) == s[1])
 	}
