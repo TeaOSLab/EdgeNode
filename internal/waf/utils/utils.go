@@ -1,8 +1,10 @@
 package utils
 
 import (
+	"github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/re"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/cachehits"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
@@ -99,4 +101,31 @@ func MatchBytesCache(regex *re.Regexp, byteSlice []byte, cacheLife CacheLife) bo
 // ComposeIPType 组合IP类型
 func ComposeIPType(setId int64, req requests.Request) string {
 	return "set:" + types.String(setId) + "@" + stringutil.Md5(req.WAFRaw().UserAgent())
+}
+
+var searchEngineProviderMap = map[string]bool{
+	"谷歌":       true,
+	"雅虎":       true,
+	"脸书":       true,
+	"百度":       true,
+	"Facebook": true,
+	"Yandex":   true,
+}
+
+// CheckSearchEngine check if ip is from search engines
+func CheckSearchEngine(ip string) bool {
+	if len(ip) == 0 {
+		return false
+	}
+
+	if agents.SharedManager.ContainsIP(ip) {
+		return true
+	}
+
+	var result = iplibrary.LookupIP(ip)
+	if result == nil {
+		return false
+	}
+
+	return searchEngineProviderMap[result.ProviderName()]
 }

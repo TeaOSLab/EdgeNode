@@ -95,14 +95,15 @@ func (this *WAFManager) ConvertWAF(policy *firewallconfigs.HTTPFirewallPolicy) (
 
 			// rule sets
 			for _, set := range group.Sets {
-				s := &RuleSet{
-					Id:          set.Id,
-					Code:        set.Code,
-					IsOn:        set.IsOn,
-					Name:        set.Name,
-					Description: set.Description,
-					Connector:   set.Connector,
-					IgnoreLocal: set.IgnoreLocal,
+				var s = &RuleSet{
+					Id:                 set.Id,
+					Code:               set.Code,
+					IsOn:               set.IsOn,
+					Name:               set.Name,
+					Description:        set.Description,
+					Connector:          set.Connector,
+					IgnoreLocal:        set.IgnoreLocal,
+					IgnoreSearchEngine: set.IgnoreSearchEngine,
 				}
 				for _, a := range set.Actions {
 					s.AddAction(a.Code, a.Options)
@@ -152,14 +153,15 @@ func (this *WAFManager) ConvertWAF(policy *firewallconfigs.HTTPFirewallPolicy) (
 
 			// rule sets
 			for _, set := range group.Sets {
-				s := &RuleSet{
-					Id:          set.Id,
-					Code:        set.Code,
-					IsOn:        set.IsOn,
-					Name:        set.Name,
-					Description: set.Description,
-					Connector:   set.Connector,
-					IgnoreLocal: set.IgnoreLocal,
+				var s = &RuleSet{
+					Id:                 set.Id,
+					Code:               set.Code,
+					IsOn:               set.IsOn,
+					Name:               set.Name,
+					Description:        set.Description,
+					Connector:          set.Connector,
+					IgnoreLocal:        set.IgnoreLocal,
+					IgnoreSearchEngine: set.IgnoreSearchEngine,
 				}
 
 				for _, a := range set.Actions {
