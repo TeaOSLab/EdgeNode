@@ -8,6 +8,7 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/stats"
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
+	wafutils "github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
 	"io"
@@ -225,7 +226,7 @@ func (this *HTTPRequest) checkWAFRequest(firewallPolicy *firewallconfigs.HTTPFir
 					var currentURL = this.URL()
 					if regionConfig.MatchCountryURL(currentURL) {
 						// 检查国家/地区级别封禁
-						if !regionConfig.IsAllowedCountry(result.CountryId(), result.ProvinceId()) {
+						if !regionConfig.IsAllowedCountry(result.CountryId(), result.ProvinceId()) && (!regionConfig.AllowSearchEngine || wafutils.CheckSearchEngine(remoteAddr)) {
 							this.firewallPolicyId = firewallPolicy.Id
 
 							if isDefendMode {
