@@ -4,7 +4,7 @@ package caches
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/goman"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/fsnotify/fsnotify"

@@ -3,7 +3,7 @@
 package runes_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/re"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/runes"
 	"github.com/iwind/TeaGo/assert"
 	"regexp"
@@ -135,7 +135,6 @@ func BenchmarkContainsAnyWordRunes(b *testing.B) {
 		}
 	})
 }
-
 
 func BenchmarkContainsAnyWord_Regexp(b *testing.B) {
 	runtime.GOMAXPROCS(4)

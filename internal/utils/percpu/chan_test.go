@@ -4,7 +4,7 @@ package percpu_test
 
 import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/percpu"
-	"github.com/TeaOSLab/EdgeNode/internal/zero"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"testing"
 )
 

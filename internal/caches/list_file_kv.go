@@ -4,10 +4,10 @@ package caches
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/iwind/TeaGo/types"

@@ -1,8 +1,9 @@
 // Copyright 2021 Liuxiangchao iwind.liu@gmail.com. All rights reserved.
 
-package zero
+package zero_test
 
 import (
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"runtime"
 	"testing"
 )
@@ -11,9 +12,9 @@ func TestZero_Chan(t *testing.T) {
 	var stat1 = &runtime.MemStats{}
 	runtime.ReadMemStats(stat1)
 
-	var m = make(chan Zero, 2_000_000)
+	var m = make(chan zero.Zero, 2_000_000)
 	for i := 0; i < 1_000_000; i++ {
-		m <- New()
+		m <- zero.New()
 	}
 
 	var stat2 = &runtime.MemStats{}
@@ -26,9 +27,9 @@ func TestZero_Map(t *testing.T) {
 	var stat1 = &runtime.MemStats{}
 	runtime.ReadMemStats(stat1)
 
-	var m = map[int]Zero{}
+	var m = map[int]zero.Zero{}
 	for i := 0; i < 1_000_000; i++ {
-		m[i] = New()
+		m[i] = zero.New()
 	}
 
 	var stat2 = &runtime.MemStats{}

@@ -1,7 +1,7 @@
 package utils_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/re"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/rands"

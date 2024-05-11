@@ -3,10 +3,10 @@ package utils
 import (
 	"github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
-	"github.com/TeaOSLab/EdgeNode/internal/re"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/cachehits"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/cespare/xxhash/v2"

@@ -5,8 +5,8 @@ package idles
 import (
 	"encoding/json"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
-	"github.com/TeaOSLab/EdgeNode/internal/goman"
 	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/shirou/gopsutil/v3/load"
 	"math"

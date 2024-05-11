@@ -3,8 +3,8 @@
 package counters
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	syncutils "github.com/TeaOSLab/EdgeNode/internal/utils/sync"
 	"github.com/cespare/xxhash/v2"
