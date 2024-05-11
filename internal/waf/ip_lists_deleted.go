@@ -3,7 +3,7 @@
 package waf
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/zero"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"sync"
 )
 

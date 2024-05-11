@@ -5,7 +5,7 @@ package bfs
 import (
 	"errors"
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/zero"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"io"
 	"os"
 	"path/filepath"

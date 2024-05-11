@@ -5,9 +5,9 @@ package nodes
 import (
 	"fmt"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
-	"github.com/TeaOSLab/EdgeNode/internal/trackers"
 	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/idles"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/trackers"
 	"runtime"
 	"time"
 )

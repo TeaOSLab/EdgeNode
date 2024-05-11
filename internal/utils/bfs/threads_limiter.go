@@ -2,7 +2,7 @@
 
 package bfs
 
-import "github.com/TeaOSLab/EdgeNode/internal/zero"
+import "github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 
 // TODO 线程数可以根据硬盘数量动态调整？
 var readThreadsLimiter = make(chan zero.Zero, 8)

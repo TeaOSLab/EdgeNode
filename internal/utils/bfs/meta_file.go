@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/zero"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"io"
 	"os"
 	"sync"

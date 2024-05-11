@@ -4,7 +4,7 @@ package re_test
 
 import (
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
-	"github.com/TeaOSLab/EdgeNode/internal/re"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
 	"github.com/iwind/TeaGo/assert"
 	"regexp"
 	"strings"

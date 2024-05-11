@@ -1,17 +1,18 @@
-package encrypt
+package encrypt_test
 
 import (
+	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
 	"runtime"
 	"strings"
 	"testing"
 )
 
 func TestAES128CFBMethod_Encrypt(t *testing.T) {
-	method, err := NewMethodInstance("aes-128-cfb", "abc", "123")
+	method, err := encrypt.NewMethodInstance("aes-128-cfb", "abc", "123")
 	if err != nil {
 		t.Fatal(err)
 	}
-	src := []byte("Hello, World")
+	var src = []byte("Hello, World")
 	dst, err := method.Encrypt(src)
 	if err != nil {
 		t.Fatal(err)
@@ -27,12 +28,12 @@ func TestAES128CFBMethod_Encrypt(t *testing.T) {
 }
 
 func TestAES128CFBMethod_Encrypt2(t *testing.T) {
-	method, err := NewMethodInstance("aes-128-cfb", "abc", "123")
+	method, err := encrypt.NewMethodInstance("aes-128-cfb", "abc", "123")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	sources := [][]byte{}
+	var sources = [][]byte{}
 
 	{
 		a := []byte{1}
@@ -73,12 +74,12 @@ func TestAES128CFBMethod_Encrypt2(t *testing.T) {
 func BenchmarkAES128CFBMethod_Encrypt(b *testing.B) {
 	runtime.GOMAXPROCS(1)
 
-	method, err := NewMethodInstance("aes-128-cfb", "abc", "123")
+	method, err := encrypt.NewMethodInstance("aes-128-cfb", "abc", "123")
 	if err != nil {
 		b.Fatal(err)
 	}
 
-	src := []byte(strings.Repeat("Hello", 1024))
+	var src = []byte(strings.Repeat("Hello", 1024))
 	for i := 0; i < b.N; i++ {
 		dst, err := method.Encrypt(src)
 		if err != nil {

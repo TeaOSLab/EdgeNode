@@ -3,7 +3,7 @@
 package trackers_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/trackers"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/trackers"
 	"github.com/iwind/TeaGo/logs"
 	"testing"
 	"time"

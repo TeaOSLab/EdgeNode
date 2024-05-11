@@ -1,13 +1,16 @@
-package encrypt
+package encrypt_test
 
-import "testing"
+import (
+	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
+	"testing"
+)
 
 func TestRawMethod_Encrypt(t *testing.T) {
-	method, err := NewMethodInstance("raw", "abc", "123")
+	method, err := encrypt.NewMethodInstance("raw", "abc", "123")
 	if err != nil {
 		t.Fatal(err)
 	}
-	src := []byte("Hello, World")
+	var src = []byte("Hello, World")
 	dst, err := method.Encrypt(src)
 	if err != nil {
 		t.Fatal(err)

@@ -4,7 +4,7 @@ package caches
 
 import (
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
-	"github.com/TeaOSLab/EdgeNode/internal/zero"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"math/big"
 	"sync"
 )
