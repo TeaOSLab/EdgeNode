@@ -38,6 +38,9 @@ func NewOpenFileCache(maxCount int) (*OpenFileCache, error) {
 	if maxCount <= 0 {
 		maxCount = 16384
 	}
+	if maxCount > 65535 {
+		maxCount = 65535
+	}
 
 	var cache = &OpenFileCache{
 		maxCount:     maxCount,
