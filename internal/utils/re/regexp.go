@@ -3,11 +3,12 @@
 package re
 
 import (
-	"github.com/iwind/TeaGo/types"
 	"regexp"
 	"regexp/syntax"
 	"strings"
 	"sync/atomic"
+
+	"github.com/iwind/TeaGo/types"
 )
 
 var prefixReg = regexp.MustCompile(`^\(\?([\w\s]+)\)`) // (?x)

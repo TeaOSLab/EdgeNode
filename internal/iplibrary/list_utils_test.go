@@ -3,9 +3,10 @@
 package iplibrary
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 func TestIPIsAllowed(t *testing.T) {

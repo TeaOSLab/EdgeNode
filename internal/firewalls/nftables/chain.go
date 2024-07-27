@@ -6,6 +6,7 @@ package nftables
 import (
 	"bytes"
 	"errors"
+
 	nft "github.com/google/nftables"
 	"github.com/google/nftables/expr"
 )

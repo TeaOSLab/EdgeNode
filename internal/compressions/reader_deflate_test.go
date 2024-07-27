@@ -4,9 +4,10 @@ package compressions_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 	"io"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 )
 
 func TestDeflateReader(t *testing.T) {

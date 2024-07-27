@@ -1,11 +1,12 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package values
 
 import (
+	"strings"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"github.com/iwind/TeaGo/types"
-	"strings"
 )
 
 type NumberList struct {

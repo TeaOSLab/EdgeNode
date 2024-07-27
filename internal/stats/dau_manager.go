@@ -1,9 +1,16 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package stats
 
 import (
 	"encoding/json"
+	"os"
+	"runtime"
+	"strings"
+	"sync"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
@@ -14,12 +21,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"os"
-	"runtime"
-	"strings"
-	"sync"
-	"testing"
-	"time"
 )
 
 var SharedDAUManager = NewDAUManager()

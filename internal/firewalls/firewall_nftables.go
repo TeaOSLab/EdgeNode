@@ -6,6 +6,12 @@ package firewalls
 import (
 	"errors"
 	"fmt"
+	"net"
+	"regexp"
+	"runtime"
+	"strings"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
 	"github.com/TeaOSLab/EdgeNode/internal/conns"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -16,11 +22,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/google/nftables/expr"
 	"github.com/iwind/TeaGo/types"
-	"net"
-	"regexp"
-	"runtime"
-	"strings"
-	"time"
 )
 
 // check nft status, if being enabled we load it automatically

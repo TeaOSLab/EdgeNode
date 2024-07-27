@@ -5,7 +5,7 @@ function build() {
 	NAME="edge-node"
 	VERSION=$(lookup-version "$ROOT"/../internal/const/const.go)
 	DIST=$ROOT/"../dist/${NAME}"
-	MUSL_DIR="/usr/local/opt/musl-cross/bin"
+	MUSL_DIR="/opt/homebrew/bin"
 	SRCDIR=$(realpath "$ROOT/..")
 
 	# for macOS users: precompiled gcc can be downloaded from https://github.com/messense/homebrew-macos-cross-toolchains
@@ -74,50 +74,20 @@ function build() {
 	CGO_LDFLAGS=""
 	CGO_CFLAGS=""
 	BUILD_TAG=$TAG
-	if [[ `uname -a` == *"Darwin"* && "${OS}" == "linux" ]]; then
+	if [[ "${OS}" == "linux" ]]; then
 		if [ "${ARCH}" == "amd64" ]; then
-			# build with script support
-			if [ -d $GCC_X86_64_DIR ]; then
-				MUSL_DIR=$GCC_X86_64_DIR
-				CC_PATH="x86_64-unknown-linux-gnu-gcc"
-				CXX_PATH="x86_64-unknown-linux-gnu-g++"
-				if [ "$TAG" = "plus" ]; then
-					BUILD_TAG="plus,script,packet"
-				fi
-			else
-				CC_PATH="x86_64-linux-musl-gcc"
-				CXX_PATH="x86_64-linux-musl-g++"
-			fi
-		fi
-		if [ "${ARCH}" == "386" ]; then
-			CC_PATH="i486-linux-musl-gcc"
-			CXX_PATH="i486-linux-musl-g++"
+			CC_PATH=$(command -v x86_64-linux-musl-gcc)
+			CXX_PATH=$(command -v x86_64-linux-musl-g++)
+			# if [ "$TAG" = "plus" ]; then
+			# 	BUILD_TAG="plus,script,packet"
+			# fi
 		fi
 		if [ "${ARCH}" == "arm64" ]; then
-			# build with script support
-			if [ -d $GCC_ARM64_DIR ]; then
-				MUSL_DIR=$GCC_ARM64_DIR
-				CC_PATH="aarch64-unknown-linux-gnu-gcc"
-				CXX_PATH="aarch64-unknown-linux-gnu-g++"
-				if [ "$TAG" = "plus" ]; then
-					BUILD_TAG="plus,script,packet"
-				fi
-			else
-				CC_PATH="aarch64-linux-musl-gcc"
-				CXX_PATH="aarch64-linux-musl-g++"
-			fi
-		fi
-		if [ "${ARCH}" == "arm" ]; then
-			CC_PATH="arm-linux-musleabi-gcc"
-			CXX_PATH="arm-linux-musleabi-g++"
-		fi
-		if [ "${ARCH}" == "mips64" ]; then
-			CC_PATH="mips64-linux-musl-gcc"
-			CXX_PATH="mips64-linux-musl-g++"
-		fi
-		if [ "${ARCH}" == "mips64le" ]; then
-			CC_PATH="mips64el-linux-musl-gcc"
-			CXX_PATH="mips64el-linux-musl-g++"
+			CC_PATH=$(command -v aarch64-linux-musl-gcc)
+			CXX_PATH=$(command -v aarch64-linux-musl-g++)
+			# if [ "$TAG" = "plus" ]; then
+			# 	BUILD_TAG="plus,script,packet"
+			# fi
 		fi
 	fi
 
@@ -127,9 +97,9 @@ function build() {
 		CGO_CFLAGS="-I${SRCDIR}/libs/libpcap/src/libpcap -I${SRCDIR}/libs/libpcap/src/libpcap/pcap -I${SRCDIR}/libs/libbrotli/src/brotli/c/include"
 	fi
 
-	if [ ! -z $CC_PATH ]; then
-		env CC=$MUSL_DIR/$CC_PATH \
-		 CXX=$MUSL_DIR/$CXX_PATH GOOS="${OS}" \
+	if [ -f $CC_PATH ]; then
+		env CC=$CC_PATH \
+		 CXX=$CXX_PATH GOOS="${OS}" \
 		 GOARCH="${ARCH}" CGO_ENABLED=1 \
 		 CGO_LDFLAGS="${CGO_LDFLAGS}" \
 		 CGO_CFLAGS="${CGO_CFLAGS}" \

@@ -2,9 +2,10 @@ package configs
 
 import (
 	"errors"
+	"os"
+
 	"github.com/iwind/TeaGo/Tea"
 	"gopkg.in/yaml.v3"
-	"os"
 )
 
 const ConfigFileName = "api_node.yaml"

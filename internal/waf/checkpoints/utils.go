@@ -149,7 +149,7 @@ var AllCheckpoints = []*CheckpointDefinition{
 	{
 		Name:        "CNAME",
 		Prefix:      "cname",
-		Description: "当前网站服务CNAME，比如38b48e4f.goedge.cn",
+		Description: "当前网站服务CNAME，比如38b48e4f.goedge.cloud",
 		HasParams:   false,
 		Instance:    new(RequestCNAMECheckpoint),
 		Priority:    100,

@@ -5,6 +5,11 @@ package nodes
 import (
 	"crypto/md5"
 	"fmt"
+	"os"
+	"path/filepath"
+	"runtime"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -16,10 +21,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	stringutil "github.com/iwind/TeaGo/utils/string"
 	"github.com/iwind/gosock/pkg/gosock"
-	"os"
-	"path/filepath"
-	"runtime"
-	"time"
 )
 
 var sharedUpgradeManager = NewUpgradeManager()

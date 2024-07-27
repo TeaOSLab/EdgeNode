@@ -1,8 +1,9 @@
 package events
 
 import (
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"sync"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 )
 
 type Callbacks = []func()

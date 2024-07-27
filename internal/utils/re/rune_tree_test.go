@@ -3,10 +3,11 @@
 package re_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
-	"github.com/iwind/TeaGo/assert"
 	"regexp"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestNewRuneTree(t *testing.T) {

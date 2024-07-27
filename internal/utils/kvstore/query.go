@@ -1,4 +1,4 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore
 
@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+
 	byteutils "github.com/TeaOSLab/EdgeNode/internal/utils/byte"
 )
 
@@ -132,37 +133,37 @@ func (this *Query[T]) FieldOffset(fieldOffset []byte) *Query[T] {
 	return this
 }
 
-//func (this *Query[T]) FieldLt(value any) *Query[T] {
+// func (this *Query[T]) FieldLt(value any) *Query[T] {
 //	this.fieldOperators = append(this.fieldOperators, QueryOperatorInfo{
 //		Operator: QueryOperatorLt,
 //		Value:    value,
 //	})
 //	return this
-//}
+// }
 //
-//func (this *Query[T]) FieldLte(value any) *Query[T] {
+// func (this *Query[T]) FieldLte(value any) *Query[T] {
 //	this.fieldOperators = append(this.fieldOperators, QueryOperatorInfo{
 //		Operator: QueryOperatorLte,
 //		Value:    value,
 //	})
 //	return this
-//}
+// }
 //
-//func (this *Query[T]) FieldGt(value any) *Query[T] {
+// func (this *Query[T]) FieldGt(value any) *Query[T] {
 //	this.fieldOperators = append(this.fieldOperators, QueryOperatorInfo{
 //		Operator: QueryOperatorGt,
 //		Value:    value,
 //	})
 //	return this
-//}
+// }
 //
-//func (this *Query[T]) FieldGte(value any) *Query[T] {
+// func (this *Query[T]) FieldGte(value any) *Query[T] {
 //	this.fieldOperators = append(this.fieldOperators, QueryOperatorInfo{
 //		Operator: QueryOperatorGte,
 //		Value:    value,
 //	})
 //	return this
-//}
+// }
 
 func (this *Query[T]) FindAll(fn IteratorFunc[T]) (err error) {
 	if this.table != nil && this.table.isClosed {

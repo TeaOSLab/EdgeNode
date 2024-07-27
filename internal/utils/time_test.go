@@ -1,9 +1,10 @@
 package utils_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils"
 )
 
 func TestGMTUnixTime(t *testing.T) {

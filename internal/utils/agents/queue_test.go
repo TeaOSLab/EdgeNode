@@ -1,14 +1,15 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package agents_test
 
 import (
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/assert"
 	_ "github.com/iwind/TeaGo/bootstrap"
-	"testing"
-	"time"
 )
 
 func TestParseQueue_Process(t *testing.T) {

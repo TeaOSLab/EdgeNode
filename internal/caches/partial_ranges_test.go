@@ -6,11 +6,12 @@ import (
 	"crypto/md5"
 	"encoding/base64"
 	"encoding/json"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/logs"
-	"testing"
-	"time"
 )
 
 func TestNewPartialRanges(t *testing.T) {

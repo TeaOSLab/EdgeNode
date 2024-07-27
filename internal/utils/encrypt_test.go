@@ -3,11 +3,12 @@
 package utils_test
 
 import (
+	"sync"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/maps"
-	"sync"
-	"testing"
 )
 
 func TestSimpleEncrypt(t *testing.T) {

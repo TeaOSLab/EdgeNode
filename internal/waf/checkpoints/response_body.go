@@ -2,10 +2,11 @@ package checkpoints
 
 import (
 	"bytes"
+	"io"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/maps"
-	"io"
 )
 
 // ResponseBodyCheckpoint ${responseBody}

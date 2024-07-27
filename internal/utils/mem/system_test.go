@@ -3,8 +3,9 @@
 package memutils_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 )
 
 func TestSystemMemoryGB(t *testing.T) {

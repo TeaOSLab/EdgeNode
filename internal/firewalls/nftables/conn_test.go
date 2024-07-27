@@ -5,9 +5,10 @@
 package nftables_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
 	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
-	"testing"
 )
 
 func TestConn_Test(t *testing.T) {

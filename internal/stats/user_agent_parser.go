@@ -3,13 +3,14 @@
 package stats
 
 import (
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	syncutils "github.com/TeaOSLab/EdgeNode/internal/utils/sync"
 	"github.com/mssola/useragent"
-	"sync"
-	"time"
 )
 
 var SharedUserAgentParser = NewUserAgentParser()

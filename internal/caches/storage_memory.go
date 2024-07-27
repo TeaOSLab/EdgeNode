@@ -2,6 +2,14 @@ package caches
 
 import (
 	"fmt"
+	"math"
+	"runtime"
+	"strconv"
+	"strings"
+	"sync"
+	"sync/atomic"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
@@ -14,13 +22,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"github.com/cespare/xxhash/v2"
 	"github.com/iwind/TeaGo/types"
-	"math"
-	"runtime"
-	"strconv"
-	"strings"
-	"sync"
-	"sync/atomic"
-	"time"
 )
 
 type MemoryItem struct {

@@ -4,6 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/url"
+	"regexp"
+	"runtime"
+	"strconv"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/messageconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
@@ -19,11 +25,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/maps"
-	"net/url"
-	"regexp"
-	"runtime"
-	"strconv"
-	"time"
 )
 
 type APIStream struct {

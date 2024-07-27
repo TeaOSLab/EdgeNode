@@ -1,12 +1,13 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches
 
 import (
-	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"math/big"
 	"sync"
+
+	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 const HashMapSharding = 31

@@ -3,15 +3,16 @@ package nodes
 import (
 	"context"
 	"errors"
+	"net"
+	"strings"
+	"sync"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"golang.org/x/net/ipv4"
 	"golang.org/x/net/ipv6"
-	"net"
-	"strings"
-	"sync"
 )
 
 type Listener struct {

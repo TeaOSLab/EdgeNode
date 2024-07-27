@@ -1,9 +1,10 @@
 package utils
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"sync"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 // Ticker 类似于time.Ticker，但能够真正地停止

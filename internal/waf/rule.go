@@ -5,6 +5,12 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"errors"
+	"net"
+	"reflect"
+	"regexp"
+	"sort"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/filterconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
@@ -19,11 +25,6 @@ import (
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
 	stringutil "github.com/iwind/TeaGo/utils/string"
-	"net"
-	"reflect"
-	"regexp"
-	"sort"
-	"strings"
 )
 
 var singleParamRegexp = regexp.MustCompile(`^\${[\w.-]+}$`)

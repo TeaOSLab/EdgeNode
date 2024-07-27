@@ -2,11 +2,12 @@ package checkpoints
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"io"
 	"mime/multipart"
 	"net/http"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 )
 
 func TestRequestUploadCheckpoint_RequestValue(t *testing.T) {

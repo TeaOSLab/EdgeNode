@@ -3,9 +3,10 @@
 package rangeutils_test
 
 import (
+	"testing"
+
 	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
 	"github.com/iwind/TeaGo/assert"
-	"testing"
 )
 
 func TestRange(t *testing.T) {

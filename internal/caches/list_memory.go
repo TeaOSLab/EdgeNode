@@ -1,8 +1,6 @@
 package caches
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
-	"github.com/iwind/TeaGo/logs"
 	"net"
 	"net/url"
 	"strconv"
@@ -10,6 +8,9 @@ import (
 	"sync"
 	"sync/atomic"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
+	"github.com/iwind/TeaGo/logs"
 )
 
 // MemoryList 内存缓存列表管理

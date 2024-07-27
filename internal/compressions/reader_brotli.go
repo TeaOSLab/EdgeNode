@@ -4,9 +4,10 @@
 package compressions
 
 import (
-	"github.com/andybalholm/brotli"
 	"io"
 	"strings"
+
+	"github.com/andybalholm/brotli"
 )
 
 type BrotliReader struct {

@@ -5,12 +5,13 @@ package nftables_test
 
 import (
 	"errors"
-	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
-	"github.com/iwind/TeaGo/types"
-	"github.com/mdlayher/netlink"
 	"net"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
+	"github.com/iwind/TeaGo/types"
+	"github.com/mdlayher/netlink"
 )
 
 func getIPv4Set(t *testing.T) *nftables.Set {

@@ -6,6 +6,19 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
+	"os"
+	"os/exec"
+	"os/signal"
+	"path/filepath"
+	"runtime"
+	"runtime/debug"
+	"sort"
+	"strings"
+	"sync"
+	"syscall"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
 	iplib "github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
@@ -38,18 +51,6 @@ import (
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
 	"github.com/iwind/gosock/pkg/gosock"
-	"log"
-	"os"
-	"os/exec"
-	"os/signal"
-	"path/filepath"
-	"runtime"
-	"runtime/debug"
-	"sort"
-	"strings"
-	"sync"
-	"syscall"
-	"time"
 )
 
 var sharedNodeConfig *nodeconfigs.NodeConfig
@@ -194,6 +195,7 @@ func (this *Node) Start() {
 	}
 	teaconst.NodeId = nodeConfig.Id
 	teaconst.NodeIdString = types.String(teaconst.NodeId)
+	teaconst.BypassMobile = nodeConfig.BypassMobile
 	err, serverErrors := nodeConfig.Init(context.Background())
 	if err != nil {
 		remotelogs.Error("NODE", "init node config failed: "+err.Error())
@@ -383,6 +385,7 @@ func (this *Node) syncConfig(taskVersion int64) error {
 	}
 	teaconst.NodeId = nodeConfig.Id
 	teaconst.NodeIdString = types.String(teaconst.NodeId)
+	teaconst.BypassMobile = nodeConfig.BypassMobile
 
 	// 检查时间是否一致
 	// 这个需要在 teaconst.NodeId 设置之后，因为上报到API节点的时候需要节点ID

@@ -1,6 +1,13 @@
 package waf
 
 import (
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"regexp"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
@@ -9,12 +16,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/logs"
 	"github.com/iwind/TeaGo/rands"
-	"io"
-	"net/http"
-	"os"
-	"path/filepath"
-	"regexp"
-	"time"
 )
 
 // url client configure

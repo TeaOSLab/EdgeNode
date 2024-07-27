@@ -1,11 +1,12 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore_test
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
 )
 
 func TestTable_ReadTx(t *testing.T) {

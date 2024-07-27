@@ -1,8 +1,9 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 func TestAPIStream_Start(t *testing.T) {

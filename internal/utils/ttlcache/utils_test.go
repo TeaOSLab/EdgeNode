@@ -1,13 +1,14 @@
 package ttlcache_test
 
 import (
+	"runtime"
+	"strconv"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"github.com/cespare/xxhash/v2"
-	"runtime"
-	"strconv"
-	"testing"
 )
 
 func TestHashCollision(t *testing.T) {

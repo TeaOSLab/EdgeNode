@@ -1,10 +1,11 @@
 package encrypt_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
 )
 
 func TestAES128CFBMethod_Encrypt(t *testing.T) {

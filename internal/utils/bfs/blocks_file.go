@@ -1,11 +1,10 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs
 
 import (
 	"errors"
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"io"
 	"os"
 	"path/filepath"
@@ -13,6 +12,8 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 const BFileExt = ".b"
@@ -317,7 +318,7 @@ func (this *BlocksFile) Close() error {
 	}
 
 	// TODO 决定是否同步
-	//_ = this.sync(true)
+	// _ = this.sync(true)
 
 	this.isClosed = true
 

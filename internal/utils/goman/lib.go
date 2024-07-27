@@ -3,10 +3,11 @@
 package goman
 
 import (
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"runtime"
 	"sync"
 	"time"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 )
 
 var locker = &sync.Mutex{}

@@ -1,10 +1,11 @@
 package checkpoints
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
-	"github.com/iwind/TeaGo/maps"
 	"net/http"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
+	"github.com/iwind/TeaGo/maps"
 )
 
 func TestCCCheckpoint_RequestValue(t *testing.T) {

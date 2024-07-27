@@ -1,14 +1,15 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package conns_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/conns"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"net"
 	"runtime"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/conns"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 type testConn struct {

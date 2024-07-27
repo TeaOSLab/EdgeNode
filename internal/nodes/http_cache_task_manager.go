@@ -1,4 +1,4 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package nodes
 
@@ -7,6 +7,15 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"os"
+	"regexp"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
@@ -19,14 +28,6 @@ import (
 	connutils "github.com/TeaOSLab/EdgeNode/internal/utils/conns"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/Tea"
-	"io"
-	"net"
-	"net/http"
-	"os"
-	"regexp"
-	"strings"
-	"sync"
-	"time"
 )
 
 func init() {

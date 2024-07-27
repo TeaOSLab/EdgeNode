@@ -1,16 +1,17 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/caches"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/Tea"
-	_ "github.com/iwind/TeaGo/bootstrap"
 	"runtime"
 	"runtime/debug"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/caches"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/Tea"
+	_ "github.com/iwind/TeaGo/bootstrap"
 )
 
 func TestFileListDB_ListLFUItems(t *testing.T) {
@@ -25,7 +26,7 @@ func TestFileListDB_ListLFUItems(t *testing.T) {
 	}()
 
 	err := db.Open(Tea.Root + "/data/cache-db-large.db")
-	//err := db.Open(Tea.Root + "/data/cache-index/p1/db-0.db")
+	// err := db.Open(Tea.Root + "/data/cache-index/p1/db-0.db")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -149,7 +150,7 @@ func TestFileListDB_Memory(t *testing.T) {
 	runtime.GC()
 	debug.FreeOSMemory()
 
-	//time.Sleep(600 * time.Second)
+	// time.Sleep(600 * time.Second)
 
 	for i := 0; i < 1_000; i++ {
 		_, err = db.ListLFUItems(5000)

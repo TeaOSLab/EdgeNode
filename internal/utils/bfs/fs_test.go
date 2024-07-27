@@ -1,8 +1,12 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs_test
 
 import (
+	"io"
+	"os"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
@@ -11,9 +15,6 @@ import (
 	_ "github.com/iwind/TeaGo/bootstrap"
 	"github.com/iwind/TeaGo/logs"
 	"github.com/iwind/TeaGo/types"
-	"io"
-	"os"
-	"testing"
 )
 
 func TestFS_OpenFileWriter(t *testing.T) {
@@ -144,7 +145,7 @@ func TestFS_OpenFileWriter_Close(t *testing.T) {
 	}
 
 	for i := 0; i < count; i++ {
-		//t.Log("open", i)
+		// t.Log("open", i)
 		writer, err := fs.OpenFileWriter(bfs.Hash(types.String(i)), -1, false)
 		if err != nil {
 			t.Fatal(err)

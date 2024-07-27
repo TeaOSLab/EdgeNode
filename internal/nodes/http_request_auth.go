@@ -4,9 +4,10 @@ package nodes
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"io"
 	"net/http"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 )
 
 // 执行认证

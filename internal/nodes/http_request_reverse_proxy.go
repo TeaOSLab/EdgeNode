@@ -3,6 +3,12 @@ package nodes
 import (
 	"context"
 	"errors"
+	"io"
+	"net/http"
+	"net/url"
+	"strconv"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/shared"
 	"github.com/TeaOSLab/EdgeNode/internal/compressions"
@@ -13,11 +19,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/minifiers"
 	"github.com/iwind/TeaGo/lists"
 	"github.com/iwind/TeaGo/types"
-	"io"
-	"net/http"
-	"net/url"
-	"strconv"
-	"strings"
 )
 
 // 处理反向代理

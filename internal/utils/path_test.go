@@ -1,8 +1,9 @@
 package utils
 
 import (
-	"github.com/iwind/TeaGo/assert"
 	"testing"
+
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestCleanPath(t *testing.T) {

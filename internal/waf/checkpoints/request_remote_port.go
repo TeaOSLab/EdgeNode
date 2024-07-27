@@ -1,11 +1,12 @@
 package checkpoints
 
 import (
+	"net"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"net"
 )
 
 type RequestRemotePortCheckpoint struct {

@@ -1,14 +1,15 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils"
-	"github.com/iwind/TeaGo/types"
 	"net"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils"
+	"github.com/iwind/TeaGo/types"
 )
 
 // 主机地址快速跳转

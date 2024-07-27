@@ -3,6 +3,10 @@ package waf
 import (
 	"errors"
 	"fmt"
+	"net/http"
+	"os"
+	"reflect"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/checkpoints"
@@ -10,9 +14,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/files"
 	"gopkg.in/yaml.v3"
-	"net/http"
-	"os"
-	"reflect"
 )
 
 type WAF struct {

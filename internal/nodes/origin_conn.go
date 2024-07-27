@@ -1,15 +1,16 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package nodes
 
 import (
+	"net"
+	"sync"
+	"time"
+
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
-	"net"
-	"sync"
-	"time"
 )
 
 const originConnCloseDelaySeconds = 3

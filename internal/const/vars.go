@@ -3,9 +3,10 @@
 package teaconst
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"os"
 	"strings"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 )
 
 var (
@@ -17,6 +18,12 @@ var (
 	NodeId       int64 = 0
 	NodeIdString       = ""
 	IsMain             = checkMain()
+
+	// Is301 是否 301 节点
+	Is301 = false
+
+	// BypassMobile 是否过移动
+	BypassMobile int32 = 0
 
 	GlobalProductName = nodeconfigs.DefaultProductName
 

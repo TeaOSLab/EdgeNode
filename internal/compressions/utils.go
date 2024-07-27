@@ -4,11 +4,12 @@ package compressions
 
 import (
 	"errors"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"io"
 	"net/http"
 	"runtime"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 )
 
 type ContentEncoding = string

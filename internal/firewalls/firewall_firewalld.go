@@ -4,13 +4,14 @@ package firewalls
 
 import (
 	"fmt"
+	"strings"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/conns"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/types"
-	"strings"
-	"time"
 )
 
 type firewalldCmd struct {

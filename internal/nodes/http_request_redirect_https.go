@@ -1,10 +1,11 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 )
 
 func (this *HTTPRequest) doRedirectToHTTPS(redirectToHTTPSConfig *serverconfigs.HTTPRedirectToHTTPSConfig) (shouldBreak bool) {

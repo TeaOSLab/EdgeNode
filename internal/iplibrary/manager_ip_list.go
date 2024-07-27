@@ -1,6 +1,10 @@
 package iplibrary
 
 import (
+	"os"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
@@ -15,9 +19,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
-	"os"
-	"sync"
-	"time"
 )
 
 var SharedIPListManager = NewIPListManager()

@@ -4,8 +4,9 @@
 package compressions
 
 import (
-	"github.com/andybalholm/brotli"
 	"io"
+
+	"github.com/andybalholm/brotli"
 )
 
 type BrotliWriter struct {

@@ -3,8 +3,9 @@
 package nodes
 
 import (
-	"github.com/iwind/TeaGo/logs"
 	"testing"
+
+	"github.com/iwind/TeaGo/logs"
 )
 
 func TestClientConnLimiter_Add(t *testing.T) {

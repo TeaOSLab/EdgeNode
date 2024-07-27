@@ -1,11 +1,12 @@
 package iplibrary
 
 import (
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"testing"
-	"time"
 )
 
 func TestScriptAction_AddItem(t *testing.T) {

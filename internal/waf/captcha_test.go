@@ -1,15 +1,16 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package waf_test
 
 import (
 	"bytes"
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/dchest/captcha"
 	"runtime"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/dchest/captcha"
 )
 
 func TestCaptchaMemory(t *testing.T) {

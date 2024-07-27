@@ -1,11 +1,12 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	"github.com/iwind/TeaGo/assert"
 	"net/http"
 	"runtime"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestHTTPRequest_RedirectToHTTPS(t *testing.T) {

@@ -1,8 +1,10 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package agents
 
 import (
+	"net"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -10,7 +12,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/rpc"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/Tea"
-	"net"
 )
 
 func init() {
@@ -82,7 +83,7 @@ func (this *Queue) Process(ip string) error {
 		return nil
 	}
 
-	//remotelogs.Debug("AGENT", ip+" => "+ptr)
+	// remotelogs.Debug("AGENT", ip+" => "+ptr)
 
 	var agentCode = this.ParsePtr(ptr)
 	if len(agentCode) == 0 {

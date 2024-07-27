@@ -3,6 +3,9 @@
 package nodes
 
 import (
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -10,8 +13,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/trackers"
 	"github.com/iwind/TeaGo/Tea"
-	"sync"
-	"time"
 )
 
 var SharedOriginStateManager = NewOriginStateManager()

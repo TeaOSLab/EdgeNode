@@ -1,4 +1,4 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package injectionutils
 
@@ -10,14 +10,15 @@ package injectionutils
 */
 import "C"
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
-	"github.com/cespare/xxhash/v2"
 	"net/url"
 	"strconv"
 	"strings"
 	"unicode/utf8"
 	"unsafe"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
+	"github.com/cespare/xxhash/v2"
 )
 
 // DetectSQLInjectionCache detect sql injection in string with cache

@@ -1,12 +1,13 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/percpu"
-	"github.com/klauspost/compress/gzip"
 	"io"
 	"runtime"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/percpu"
+	"github.com/klauspost/compress/gzip"
 )
 
 var SharedDecompressPool = NewGzipReaderPool()

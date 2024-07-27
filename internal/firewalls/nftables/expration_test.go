@@ -1,14 +1,15 @@
-// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package nftables_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
-	"github.com/iwind/TeaGo/rands"
-	"github.com/iwind/TeaGo/types"
 	"net"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
+	"github.com/iwind/TeaGo/rands"
+	"github.com/iwind/TeaGo/types"
 )
 
 func TestExpiration_Add(t *testing.T) {

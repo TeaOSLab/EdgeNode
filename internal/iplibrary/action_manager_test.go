@@ -1,9 +1,10 @@
 package iplibrary
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/iwind/TeaGo/maps"
-	"testing"
 )
 
 func TestActionManager_UpdateActions(t *testing.T) {

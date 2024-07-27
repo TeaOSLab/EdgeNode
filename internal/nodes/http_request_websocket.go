@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"errors"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/bytepool"
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/bytepool"
 )
 
 // WebsocketResponseReader Websocket响应Reader

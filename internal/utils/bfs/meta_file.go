@@ -1,15 +1,16 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs
 
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"io"
 	"os"
 	"sync"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 const MFileExt = ".m"

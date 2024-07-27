@@ -1,12 +1,13 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package utils_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"strings"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils"
 )
 
 func TestNewBufferPool(t *testing.T) {

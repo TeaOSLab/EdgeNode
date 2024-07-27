@@ -1,11 +1,12 @@
 package caches
 
 import (
+	"os"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"github.com/iwind/TeaGo/Tea"
-	"os"
-	"testing"
 )
 
 func TestFileReader(t *testing.T) {

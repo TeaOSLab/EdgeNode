@@ -1,13 +1,14 @@
 package waf_test
 
 import (
+	"net/http"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/maps"
-	"net/http"
-	"testing"
 )
 
 func TestWAF_MatchRequest(t *testing.T) {

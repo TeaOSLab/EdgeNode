@@ -4,10 +4,11 @@ package compressions_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 	"io"
 	"os"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 )
 
 func TestBrotliReader(t *testing.T) {

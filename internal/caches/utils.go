@@ -1,11 +1,12 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
 	"net"
 	"strings"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
 )
 
 func ParseHost(key string) string {

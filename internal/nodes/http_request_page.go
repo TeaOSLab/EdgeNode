@@ -1,15 +1,16 @@
 package nodes
 
 import (
+	"net/http"
+	"os"
+	"path"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/bytepool"
 	"github.com/iwind/TeaGo/Tea"
-	"net/http"
-	"os"
-	"path"
-	"strings"
 )
 
 const defaultPageContentType = "text/html; charset=utf-8"

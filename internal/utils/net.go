@@ -5,9 +5,10 @@ package utils
 
 import (
 	"context"
-	"github.com/iwind/TeaGo/logs"
 	"net"
 	"syscall"
+
+	"github.com/iwind/TeaGo/logs"
 )
 
 // ListenReuseAddr 监听可重用的端口

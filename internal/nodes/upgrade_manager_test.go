@@ -3,9 +3,10 @@
 package nodes
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	_ "github.com/iwind/TeaGo/bootstrap"
-	"testing"
 )
 
 func TestUpgradeManager_install(t *testing.T) {

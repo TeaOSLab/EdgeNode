@@ -5,6 +5,7 @@ package nftables
 
 import (
 	"errors"
+
 	nft "github.com/google/nftables"
 	"github.com/iwind/TeaGo/types"
 )

@@ -1,11 +1,12 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package goman
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"runtime"
 	"sync"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 type TaskGroup struct {

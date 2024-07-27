@@ -1,13 +1,14 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches_test
 
 import (
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/types"
-	"testing"
-	"time"
 )
 
 func TestNewOpenFileCache_Close(t *testing.T) {

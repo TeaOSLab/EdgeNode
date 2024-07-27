@@ -1,8 +1,9 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"net/http"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 )
 
 // HTTPClient HTTP客户端

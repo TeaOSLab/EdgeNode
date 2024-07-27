@@ -3,11 +3,12 @@ package caches
 import (
 	"encoding/binary"
 	"errors"
-	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
-	"github.com/iwind/TeaGo/types"
 	"io"
 	"strings"
 	"sync"
+
+	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
+	"github.com/iwind/TeaGo/types"
 )
 
 type FileWriter struct {

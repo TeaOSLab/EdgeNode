@@ -4,8 +4,9 @@ package compressions_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 )
 
 func BenchmarkGzipWriter_Write(b *testing.B) {

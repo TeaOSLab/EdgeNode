@@ -3,14 +3,15 @@
 package nodes
 
 import (
+	"sync/atomic"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/monitor"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/maps"
-	"sync/atomic"
-	"time"
 )
 
 // 发送监控流量

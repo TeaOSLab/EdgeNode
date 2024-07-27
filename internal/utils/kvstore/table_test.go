@@ -1,18 +1,19 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore_test
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/assert"
-	"github.com/iwind/TeaGo/types"
 	"math/rand"
 	"runtime"
 	"strconv"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/assert"
+	"github.com/iwind/TeaGo/types"
 )
 
 func TestTable_Set(t *testing.T) {
@@ -263,7 +264,7 @@ func TestTable_Count(t *testing.T) {
 
 	// watch memory usage
 	if testutils.IsSingleTesting() {
-		//time.Sleep(5 * time.Minute)
+		// time.Sleep(5 * time.Minute)
 	}
 }
 

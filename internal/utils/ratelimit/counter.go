@@ -3,8 +3,9 @@
 package ratelimit
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"sync"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 type Counter struct {

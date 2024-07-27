@@ -3,12 +3,13 @@
 package iplibrary_test
 
 import (
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 	_ "github.com/iwind/TeaGo/bootstrap"
 	"github.com/iwind/TeaGo/logs"
-	"testing"
-	"time"
 )
 
 func TestSQLiteIPList_AddItem(t *testing.T) {

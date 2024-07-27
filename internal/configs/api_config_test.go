@@ -1,10 +1,11 @@
 package configs_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/configs"
 	_ "github.com/iwind/TeaGo/bootstrap"
 	"gopkg.in/yaml.v3"
-	"testing"
 )
 
 func TestLoadAPIConfig(t *testing.T) {

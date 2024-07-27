@@ -3,11 +3,12 @@
 package linkedlist_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
-	"github.com/iwind/TeaGo/types"
 	"runtime"
 	"strconv"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
+	"github.com/iwind/TeaGo/types"
 )
 
 func TestNewList_Memory(t *testing.T) {

@@ -4,6 +4,10 @@ package waf
 
 import (
 	"encoding/json"
+	"os"
+	"sync"
+	"sync/atomic"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/conns"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -14,9 +18,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"os"
-	"sync"
-	"sync/atomic"
 )
 
 var SharedIPWhiteList = NewIPList(IPListTypeAllow)

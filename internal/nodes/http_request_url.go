@@ -1,12 +1,13 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils"
-	"github.com/iwind/TeaGo/logs"
 	"io"
 	"net/http"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils"
+	"github.com/iwind/TeaGo/logs"
 )
 
 // 请求某个URL

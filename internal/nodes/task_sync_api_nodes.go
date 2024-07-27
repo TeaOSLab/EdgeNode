@@ -1,6 +1,8 @@
 package nodes
 
 import (
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/configs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -11,7 +13,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/trackers"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/logs"
-	"time"
 )
 
 var sharedSyncAPINodesTask = NewSyncAPINodesTask()

@@ -3,6 +3,10 @@ package nodes
 import (
 	"crypto/tls"
 	"errors"
+	"net"
+	"strings"
+	"sync/atomic"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/shared"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
@@ -11,9 +15,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/types"
 	"github.com/pires/go-proxyproto"
-	"net"
-	"strings"
-	"sync/atomic"
 )
 
 type TCPListener struct {

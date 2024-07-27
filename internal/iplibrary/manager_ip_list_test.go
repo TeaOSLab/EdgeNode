@@ -1,12 +1,13 @@
 package iplibrary_test
 
 import (
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
 	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/logs"
-	"testing"
-	"time"
 )
 
 func TestIPListManager_init(t *testing.T) {

@@ -2,6 +2,10 @@ package nodes
 
 import (
 	"bytes"
+	"strings"
+	"time"
+	"unicode/utf8"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/rpc"
@@ -10,9 +14,6 @@ import (
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"strings"
-	"time"
-	"unicode/utf8"
 )
 
 var sharedHTTPAccessLogQueue = NewHTTPAccessLogQueue()

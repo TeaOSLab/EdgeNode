@@ -1,13 +1,14 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package agents_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/Tea"
 	_ "github.com/iwind/TeaGo/bootstrap"
-	"testing"
 )
 
 func TestNewManager(t *testing.T) {

@@ -5,9 +5,10 @@ package caches_test
 import (
 	"errors"
 	"fmt"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/iwind/TeaGo/assert"
-	"testing"
 )
 
 func TestCanIgnoreErr(t *testing.T) {

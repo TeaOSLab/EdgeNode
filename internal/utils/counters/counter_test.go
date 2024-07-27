@@ -1,19 +1,20 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package counters_test
 
 import (
+	"runtime"
+	"runtime/debug"
+	"sync/atomic"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/counters"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/rands"
 	"github.com/iwind/TeaGo/types"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"runtime"
-	"runtime/debug"
-	"sync/atomic"
-	"testing"
-	"time"
 )
 
 func TestCounter_Increase(t *testing.T) {
@@ -124,7 +125,7 @@ func BenchmarkCounter_Increase(b *testing.B) {
 		}
 	})
 
-	//b.Log(counter.TotalItems())
+	// b.Log(counter.TotalItems())
 }
 
 func BenchmarkCounter_IncreaseKey(b *testing.B) {
@@ -149,7 +150,7 @@ func BenchmarkCounter_IncreaseKey(b *testing.B) {
 		}
 	})
 
-	//b.Log(counter.TotalItems())
+	// b.Log(counter.TotalItems())
 }
 
 func BenchmarkCounter_IncreaseKey2(b *testing.B) {
@@ -173,7 +174,7 @@ func BenchmarkCounter_IncreaseKey2(b *testing.B) {
 		}
 	})
 
-	//b.Log(counter.TotalItems())
+	// b.Log(counter.TotalItems())
 }
 
 func BenchmarkCounter_GC(b *testing.B) {
@@ -193,5 +194,5 @@ func BenchmarkCounter_GC(b *testing.B) {
 		}
 	})
 
-	//b.Log(counter.TotalItems())
+	// b.Log(counter.TotalItems())
 }

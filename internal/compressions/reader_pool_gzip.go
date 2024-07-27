@@ -3,8 +3,9 @@
 package compressions
 
 import (
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"io"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 )
 
 var sharedGzipReaderPool *ReaderPool

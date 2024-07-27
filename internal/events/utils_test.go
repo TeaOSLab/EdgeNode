@@ -1,8 +1,9 @@
 package events_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/events"
 )
 
 func TestOn(t *testing.T) {

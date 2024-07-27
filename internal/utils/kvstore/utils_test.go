@@ -1,13 +1,14 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/assert"
 	_ "github.com/iwind/TeaGo/bootstrap"
-	"testing"
 )
 
 func TestRemoveDB(t *testing.T) {

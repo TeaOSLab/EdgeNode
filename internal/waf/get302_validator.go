@@ -3,11 +3,12 @@
 package waf
 
 import (
+	"net/http"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/types"
-	"net/http"
-	"time"
 )
 
 var get302Validator = NewGet302Validator()

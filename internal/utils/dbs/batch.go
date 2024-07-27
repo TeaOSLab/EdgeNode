@@ -1,11 +1,12 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package dbs
 
 import (
 	"database/sql"
-	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 )
 
 type batchItem struct {

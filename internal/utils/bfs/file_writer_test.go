@@ -1,16 +1,17 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs_test
 
 import (
 	"bytes"
+	"net/http"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/logs"
-	"net/http"
-	"testing"
-	"time"
 )
 
 func TestNewFileWriter(t *testing.T) {

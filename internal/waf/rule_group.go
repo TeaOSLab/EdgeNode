@@ -2,6 +2,7 @@ package waf
 
 import (
 	"fmt"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 )
 

@@ -2,6 +2,12 @@ package nodes
 
 import (
 	"encoding/json"
+	"math"
+	"os"
+	"runtime"
+	"strings"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
@@ -19,11 +25,6 @@ import (
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/disk"
 	"github.com/shirou/gopsutil/v3/net"
-	"math"
-	"os"
-	"runtime"
-	"strings"
-	"time"
 )
 
 type NodeStatusExecutor struct {

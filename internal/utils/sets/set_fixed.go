@@ -3,8 +3,9 @@
 package setutils
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"sync"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 // FixedSet

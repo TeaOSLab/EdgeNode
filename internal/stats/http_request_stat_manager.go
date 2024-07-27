@@ -1,6 +1,12 @@
 package stats
 
 import (
+	"sort"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
 	iplib "github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
@@ -17,11 +23,6 @@ import (
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"sort"
-	"strconv"
-	"strings"
-	"sync"
-	"time"
 )
 
 type StatItem struct {

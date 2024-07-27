@@ -1,16 +1,17 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore_test
 
 import (
 	"encoding/binary"
 	"errors"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"strconv"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 type testCachedItem struct {
@@ -103,7 +104,7 @@ func TestTable_AddField_Many(t *testing.T) {
 		return
 	}
 
-	//runtime.GOMAXPROCS(1)
+	// runtime.GOMAXPROCS(1)
 
 	var table = testOpenStoreTable[*testCachedItem](t, "cache_items", &testCacheItemEncoder[*testCachedItem]{})
 
@@ -161,7 +162,7 @@ func TestTable_AddField_Delete_Many(t *testing.T) {
 		return
 	}
 
-	//runtime.GOMAXPROCS(1)
+	// runtime.GOMAXPROCS(1)
 
 	var table = testOpenStoreTable[*testCachedItem](t, "cache_items", &testCacheItemEncoder[*testCachedItem]{})
 

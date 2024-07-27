@@ -1,14 +1,15 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package stats_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/stats"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/rands"
 	"runtime"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/stats"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/rands"
 )
 
 func TestDAUManager_AddIP(t *testing.T) {

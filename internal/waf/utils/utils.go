@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"strconv"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
@@ -12,7 +14,6 @@ import (
 	"github.com/cespare/xxhash/v2"
 	"github.com/iwind/TeaGo/types"
 	stringutil "github.com/iwind/TeaGo/utils/string"
-	"strconv"
 )
 
 var SharedCache = ttlcache.NewCache[int8]()

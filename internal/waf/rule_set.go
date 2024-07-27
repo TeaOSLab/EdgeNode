@@ -2,6 +2,9 @@ package waf
 
 import (
 	"fmt"
+	"net/http"
+	"sort"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
@@ -10,8 +13,6 @@ import (
 	"github.com/iwind/TeaGo/lists"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"net/http"
-	"sort"
 )
 
 type RuleConnector = string

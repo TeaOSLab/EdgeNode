@@ -4,11 +4,12 @@ package nodes
 
 import (
 	"crypto/tls"
-	"github.com/TeaOSLab/EdgeNode/internal/firewalls"
-	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 	"net"
 	"sync/atomic"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/firewalls"
+	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 )
 
 type BaseClientConn struct {

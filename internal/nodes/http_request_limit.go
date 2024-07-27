@@ -3,8 +3,9 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 	"net/http"
+
+	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
 )
 
 func (this *HTTPRequest) doRequestLimit() (shouldStop bool) {

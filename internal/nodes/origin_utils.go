@@ -3,12 +3,13 @@ package nodes
 import (
 	"crypto/tls"
 	"errors"
+	"net"
+	"strconv"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/configutils"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/iwind/TeaGo/types"
-	"net"
-	"strconv"
 )
 
 // OriginConnect 连接源站

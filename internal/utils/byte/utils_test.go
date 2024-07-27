@@ -1,12 +1,13 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package byteutils_test
 
 import (
 	"bytes"
+	"testing"
+
 	byteutils "github.com/TeaOSLab/EdgeNode/internal/utils/byte"
 	"github.com/iwind/TeaGo/assert"
-	"testing"
 )
 
 func TestCopy(t *testing.T) {

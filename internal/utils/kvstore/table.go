@@ -1,4 +1,4 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore
 
@@ -7,9 +7,10 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"sync"
+
 	"github.com/cockroachdb/pebble"
 	"github.com/iwind/TeaGo/types"
-	"sync"
 )
 
 const (

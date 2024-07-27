@@ -1,12 +1,13 @@
-// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package fasttime_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	timeutil "github.com/iwind/TeaGo/utils/time"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	timeutil "github.com/iwind/TeaGo/utils/time"
 )
 
 func TestFastTime_Unix(t *testing.T) {

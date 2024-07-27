@@ -4,6 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"os"
+	"runtime"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -12,9 +16,6 @@ import (
 	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/iwind/TeaGo/maps"
-	"os"
-	"runtime"
-	"time"
 )
 
 func init() {

@@ -6,10 +6,11 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
-	byteutils "github.com/TeaOSLab/EdgeNode/internal/utils/byte"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
 	"strconv"
 	"strings"
+
+	byteutils "github.com/TeaOSLab/EdgeNode/internal/utils/byte"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
 )
 
 type Stat struct {

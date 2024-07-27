@@ -1,16 +1,17 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package rpc_test
 
 import (
+	"sync"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/rpc"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	_ "github.com/iwind/TeaGo/bootstrap"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"sync"
-	"testing"
-	"time"
 )
 
 func TestRPCConcurrentCall(t *testing.T) {

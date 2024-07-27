@@ -4,15 +4,16 @@ package agents
 
 import (
 	"errors"
+	"log"
+	"os"
+	"path/filepath"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/dbs"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
-	"log"
-	"os"
-	"path/filepath"
-	"strings"
 )
 
 const (

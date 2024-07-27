@@ -3,10 +3,11 @@
 package checkpoints_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/waf/checkpoints"
-	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"net/http"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/waf/checkpoints"
+	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 )
 
 func TestRequestHeaderNamesCheckpoint_RequestValue(t *testing.T) {

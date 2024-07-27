@@ -1,12 +1,13 @@
-// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package connutils
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"net"
 	"sync"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 // 记录不需要带宽统计的连接

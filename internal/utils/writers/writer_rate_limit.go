@@ -4,9 +4,10 @@ package writers
 
 import (
 	"context"
-	"github.com/iwind/TeaGo/types"
 	"io"
 	"time"
+
+	"github.com/iwind/TeaGo/types"
 )
 
 // RateLimitWriter 限速写入

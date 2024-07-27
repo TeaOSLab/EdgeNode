@@ -1,10 +1,13 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package iplibrary
 
 import (
 	"encoding/binary"
 	"errors"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
@@ -12,8 +15,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/idles"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
-	"testing"
-	"time"
 )
 
 type KVIPList struct {

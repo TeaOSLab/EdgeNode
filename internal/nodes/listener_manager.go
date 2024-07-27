@@ -2,6 +2,14 @@ package nodes
 
 import (
 	"fmt"
+	"net/url"
+	"regexp"
+	"runtime"
+	"sort"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -14,13 +22,6 @@ import (
 	"github.com/iwind/TeaGo/lists"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"net/url"
-	"regexp"
-	"runtime"
-	"sort"
-	"strings"
-	"sync"
-	"time"
 )
 
 var sharedListenerManager *ListenerManager

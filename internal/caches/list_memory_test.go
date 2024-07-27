@@ -2,6 +2,12 @@ package caches_test
 
 import (
 	"fmt"
+	"math/rand"
+	"sort"
+	"strconv"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/cespare/xxhash/v2"
@@ -9,11 +15,6 @@ import (
 	"github.com/iwind/TeaGo/rands"
 	"github.com/iwind/TeaGo/types"
 	stringutil "github.com/iwind/TeaGo/utils/string"
-	"math/rand"
-	"sort"
-	"strconv"
-	"testing"
-	"time"
 )
 
 func TestMemoryList_Add(t *testing.T) {

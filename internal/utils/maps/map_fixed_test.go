@@ -1,10 +1,11 @@
-// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package maputils_test
 
 import (
-	maputils "github.com/TeaOSLab/EdgeNode/internal/utils/maps"
 	"testing"
+
+	maputils "github.com/TeaOSLab/EdgeNode/internal/utils/maps"
 )
 
 func TestNewFixedMap(t *testing.T) {

@@ -1,10 +1,11 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package agents_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/agents"
 )
 
 func TestIsAgentFromUserAgent(t *testing.T) {

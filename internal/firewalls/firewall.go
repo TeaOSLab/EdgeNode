@@ -3,13 +3,14 @@
 package firewalls
 
 import (
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
-	"github.com/TeaOSLab/EdgeNode/internal/events"
-	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"os"
 	"runtime"
 	"sync"
 	"time"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
+	"github.com/TeaOSLab/EdgeNode/internal/events"
+	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 )
 
 var currentFirewall FirewallInterface

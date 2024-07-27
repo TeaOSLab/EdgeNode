@@ -4,11 +4,12 @@ package compressions_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/compressions"
-	stringutil "github.com/iwind/TeaGo/utils/string"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/compressions"
+	stringutil "github.com/iwind/TeaGo/utils/string"
 )
 
 func TestBrotliWriter_LargeFile(t *testing.T) {

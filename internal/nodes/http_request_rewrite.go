@@ -1,8 +1,9 @@
 package nodes
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"net/http"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 )
 
 // 调用Rewrite

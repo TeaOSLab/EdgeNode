@@ -2,10 +2,11 @@ package waf
 
 import (
 	"encoding/json"
-	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
-	"github.com/iwind/TeaGo/maps"
 	"reflect"
 	"sync/atomic"
+
+	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
+	"github.com/iwind/TeaGo/maps"
 )
 
 var seedActionId int64 = 1

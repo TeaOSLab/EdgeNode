@@ -5,11 +5,12 @@ package nftables
 
 import (
 	"errors"
-	"github.com/TeaOSLab/EdgeNode/internal/utils"
-	nft "github.com/google/nftables"
 	"net"
 	"strings"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils"
+	nft "github.com/google/nftables"
 )
 
 const MaxSetNameLength = 15

@@ -1,10 +1,11 @@
 package utils
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 func TestRawTicker(t *testing.T) {

@@ -3,6 +3,10 @@
 package iplibrary
 
 import (
+	"os"
+	"path/filepath"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
@@ -10,9 +14,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/idles"
 	"github.com/iwind/TeaGo/Tea"
-	"os"
-	"path/filepath"
-	"time"
 )
 
 type SQLiteIPList struct {

@@ -1,6 +1,10 @@
 package waf
 
 import (
+	"net/http"
+	"strings"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/ipconfigs"
@@ -12,9 +16,6 @@ import (
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/types"
-	"net/http"
-	"strings"
-	"time"
 )
 
 type recordIPTask struct {

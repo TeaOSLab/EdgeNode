@@ -5,6 +5,13 @@ package caches
 import (
 	"errors"
 	"fmt"
+	"net"
+	"net/url"
+	"os"
+	"runtime"
+	"strings"
+	"time"
+
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/dbs"
@@ -13,12 +20,6 @@ import (
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/iwind/TeaGo/logs"
 	"github.com/iwind/TeaGo/types"
-	"net"
-	"net/url"
-	"os"
-	"runtime"
-	"strings"
-	"time"
 )
 
 type SQLiteFileListDB struct {

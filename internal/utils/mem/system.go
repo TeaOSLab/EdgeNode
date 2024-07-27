@@ -3,10 +3,11 @@
 package memutils
 
 import (
+	"time"
+
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/shirou/gopsutil/v3/mem"
-	"time"
 )
 
 var systemTotalMemory = -1

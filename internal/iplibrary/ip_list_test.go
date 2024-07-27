@@ -2,13 +2,6 @@ package iplibrary_test
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
-	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/assert"
-	"github.com/iwind/TeaGo/logs"
-	"github.com/iwind/TeaGo/rands"
 	"math/rand"
 	"runtime"
 	"runtime/debug"
@@ -16,6 +9,14 @@ import (
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
+	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/assert"
+	"github.com/iwind/TeaGo/logs"
+	"github.com/iwind/TeaGo/rands"
 )
 
 func TestIPList_Add_Empty(t *testing.T) {

@@ -4,10 +4,11 @@ package testutils
 
 import (
 	"fmt"
-	timeutil "github.com/iwind/TeaGo/utils/time"
 	"runtime"
 	"testing"
 	"time"
+
+	timeutil "github.com/iwind/TeaGo/utils/time"
 )
 
 func StartMemoryStatsGC(t *testing.T) {

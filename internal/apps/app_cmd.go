@@ -3,12 +3,6 @@ package apps
 import (
 	"errors"
 	"fmt"
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
-	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
-	"github.com/iwind/TeaGo/logs"
-	"github.com/iwind/TeaGo/maps"
-	"github.com/iwind/TeaGo/types"
-	"github.com/iwind/gosock/pkg/gosock"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -17,6 +11,13 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
+	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
+	"github.com/iwind/TeaGo/logs"
+	"github.com/iwind/TeaGo/maps"
+	"github.com/iwind/TeaGo/types"
+	"github.com/iwind/gosock/pkg/gosock"
 )
 
 // AppCmd App命令帮助

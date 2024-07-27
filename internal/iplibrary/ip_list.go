@@ -1,11 +1,12 @@
 package iplibrary
 
 import (
+	"sort"
+	"sync"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/expires"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"sort"
-	"sync"
 )
 
 var GlobalBlackIPList = NewIPList()

@@ -4,9 +4,10 @@
 package nftables_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
 	"net"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/firewalls/nftables"
 )
 
 func getIPv4Chain(t *testing.T) *nftables.Chain {

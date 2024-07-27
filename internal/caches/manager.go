@@ -2,6 +2,9 @@ package caches
 
 import (
 	"fmt"
+	"strconv"
+	"sync"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/shared"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -11,8 +14,6 @@ import (
 	"github.com/iwind/TeaGo/lists"
 	"github.com/iwind/TeaGo/types"
 	"golang.org/x/sys/unix"
-	"strconv"
-	"sync"
 )
 
 var SharedManager = NewManager()

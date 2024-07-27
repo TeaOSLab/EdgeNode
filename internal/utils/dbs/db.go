@@ -7,15 +7,16 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"os"
+	"strings"
+	"sync"
+	"time"
+
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	_ "github.com/mattn/go-sqlite3"
-	"os"
-	"strings"
-	"sync"
-	"time"
 )
 
 const (

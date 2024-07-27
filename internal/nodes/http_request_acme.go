@@ -1,10 +1,11 @@
 package nodes
 
 import (
+	"path/filepath"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/rpc"
-	"path/filepath"
 )
 
 func (this *HTTPRequest) doACME() (shouldStop bool) {

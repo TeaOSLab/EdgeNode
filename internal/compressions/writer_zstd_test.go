@@ -4,9 +4,10 @@ package compressions_test
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 	"strings"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 )
 
 func TestNewZSTDWriter_Level0(t *testing.T) {

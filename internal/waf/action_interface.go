@@ -3,8 +3,9 @@
 package waf
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"net/http"
+
+	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 )
 
 type ActionInterface interface {

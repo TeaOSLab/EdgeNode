@@ -3,9 +3,10 @@
 package zero_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"runtime"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 func TestZero_Chan(t *testing.T) {

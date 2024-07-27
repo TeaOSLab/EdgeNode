@@ -1,15 +1,16 @@
 package iplibrary_test
 
 import (
-	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
-	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/assert"
 	"math/rand"
 	"runtime"
 	"strconv"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/iputils"
+	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestIPItem_Contains(t *testing.T) {

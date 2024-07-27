@@ -2,12 +2,13 @@ package nodes
 
 import (
 	"context"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"net/http"
 	"runtime"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 )
 
 func TestHTTPClientPool_Client(t *testing.T) {

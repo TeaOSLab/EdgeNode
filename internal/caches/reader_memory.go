@@ -2,8 +2,9 @@ package caches
 
 import (
 	"errors"
-	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
 	"io"
+
+	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
 )
 
 type MemoryReader struct {

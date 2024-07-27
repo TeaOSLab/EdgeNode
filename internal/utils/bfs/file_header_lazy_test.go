@@ -1,11 +1,12 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
 	"runtime"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
 )
 
 func TestNewLazyFileHeaderFromData(t *testing.T) {

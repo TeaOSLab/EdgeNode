@@ -1,16 +1,17 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package cachehits
 
 import (
+	"sync"
+	"sync/atomic"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/idles"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/iwind/TeaGo/Tea"
-	"sync"
-	"sync/atomic"
-	"time"
 )
 
 const countSamples = 100_000

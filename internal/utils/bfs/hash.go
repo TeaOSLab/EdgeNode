@@ -1,9 +1,10 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs
 
 import (
 	"fmt"
+
 	stringutil "github.com/iwind/TeaGo/utils/string"
 )
 

@@ -5,6 +5,13 @@ package nodes
 import (
 	"errors"
 	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"net/url"
+	"path/filepath"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
@@ -13,12 +20,6 @@ import (
 	"github.com/iwind/TeaGo/rands"
 	"github.com/iwind/TeaGo/types"
 	"github.com/iwind/gofcgi/pkg/fcgi"
-	"io"
-	"net"
-	"net/http"
-	"net/url"
-	"path/filepath"
-	"strings"
 )
 
 func (this *HTTPRequest) doFastcgi() (shouldStop bool) {

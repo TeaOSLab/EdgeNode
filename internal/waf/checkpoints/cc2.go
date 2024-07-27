@@ -4,14 +4,15 @@ package checkpoints
 
 import (
 	"fmt"
+	"path/filepath"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/counters"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	wafutils "github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"path/filepath"
-	"strings"
 )
 
 // CC2Checkpoint 新的CC

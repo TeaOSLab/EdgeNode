@@ -1,15 +1,16 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches
 
 import (
+	"sync"
+
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
 	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
-	"sync"
 )
 
 var SharedPartialRangesQueue = NewPartialRangesQueue()

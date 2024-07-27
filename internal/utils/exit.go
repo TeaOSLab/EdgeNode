@@ -3,8 +3,9 @@
 package utils
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"os"
+
+	"github.com/TeaOSLab/EdgeNode/internal/events"
 )
 
 func Exit() {

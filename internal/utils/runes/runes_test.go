@@ -1,16 +1,17 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package runes_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/runes"
-	"github.com/iwind/TeaGo/assert"
 	"regexp"
 	"runtime"
 	"sort"
 	"strings"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/re"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/runes"
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestContainsAllWords(t *testing.T) {

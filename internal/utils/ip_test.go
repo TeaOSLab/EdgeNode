@@ -1,9 +1,10 @@
 package utils_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/iwind/TeaGo/assert"
-	"testing"
 )
 
 func TestIsLocalIP(t *testing.T) {

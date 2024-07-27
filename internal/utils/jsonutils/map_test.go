@@ -3,9 +3,10 @@
 package jsonutils
 
 import (
+	"testing"
+
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/maps"
-	"testing"
 )
 
 func TestMapToObject(t *testing.T) {

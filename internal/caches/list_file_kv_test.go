@@ -1,19 +1,20 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches_test
 
 import (
 	"fmt"
-	"github.com/TeaOSLab/EdgeNode/internal/caches"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/Tea"
-	_ "github.com/iwind/TeaGo/bootstrap"
-	stringutil "github.com/iwind/TeaGo/utils/string"
 	"math/rand"
 	"strconv"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/caches"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/Tea"
+	_ "github.com/iwind/TeaGo/bootstrap"
+	stringutil "github.com/iwind/TeaGo/utils/string"
 )
 
 var testingKVList *caches.KVFileList
@@ -295,7 +296,7 @@ func TestKVFileList_Purge(t *testing.T) {
 
 	var before = time.Now()
 	count, err := list.Purge(4_000, func(hash string) error {
-		//t.Log("hash:", hash)
+		// t.Log("hash:", hash)
 		return nil
 	})
 	if err != nil {

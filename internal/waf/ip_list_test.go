@@ -3,6 +3,12 @@
 package waf_test
 
 import (
+	"os"
+	"runtime"
+	"strconv"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
@@ -11,11 +17,6 @@ import (
 	_ "github.com/iwind/TeaGo/bootstrap"
 	"github.com/iwind/TeaGo/logs"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"os"
-	"runtime"
-	"strconv"
-	"testing"
-	"time"
 )
 
 func TestNewIPList(t *testing.T) {

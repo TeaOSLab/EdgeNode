@@ -1,11 +1,12 @@
 package checkpoints
 
 import (
+	"sort"
+	"strings"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/maps"
-	"sort"
-	"strings"
 )
 
 type RequestHeadersCheckpoint struct {

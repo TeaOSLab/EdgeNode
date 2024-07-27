@@ -1,11 +1,12 @@
 package utils_test
 
 import (
+	"strings"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/types"
-	"strings"
-	"testing"
 )
 
 func TestBytesToString(t *testing.T) {

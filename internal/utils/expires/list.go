@@ -1,8 +1,9 @@
 package expires
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"sync"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 type ItemMap = map[uint64]zero.Zero

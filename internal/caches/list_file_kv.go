@@ -1,9 +1,12 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches
 
 import (
 	"fmt"
+	"strings"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
@@ -11,8 +14,6 @@ import (
 	memutils "github.com/TeaOSLab/EdgeNode/internal/utils/mem"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/iwind/TeaGo/types"
-	"strings"
-	"testing"
 )
 
 const countKVStores = 10

@@ -1,17 +1,18 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs
 
 import (
 	"errors"
-	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"log"
 	"runtime"
 	"sync"
 	"time"
+
+	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/linkedlist"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 )
 
 func IsEnabled() bool {

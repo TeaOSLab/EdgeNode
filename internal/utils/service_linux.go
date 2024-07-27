@@ -6,14 +6,15 @@ package utils
 import (
 	"errors"
 	"fmt"
-	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
-	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
-	"github.com/iwind/TeaGo/Tea"
-	"github.com/iwind/TeaGo/files"
 	"os"
 	"os/exec"
 	"regexp"
 	"time"
+
+	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
+	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
+	"github.com/iwind/TeaGo/Tea"
+	"github.com/iwind/TeaGo/files"
 )
 
 var systemdServiceFile = "/etc/systemd/system/edge-node.service"

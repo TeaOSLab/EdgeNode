@@ -1,12 +1,13 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package values_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/values"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/logs"
-	"testing"
 )
 
 func TestIPRange_ParseIPRangeList(t *testing.T) {

@@ -1,16 +1,17 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package kvstore_test
 
 import (
+	"sync"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/kvstore"
 	"github.com/cockroachdb/pebble"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/assert"
 	_ "github.com/iwind/TeaGo/bootstrap"
-	"sync"
-	"testing"
-	"time"
 )
 
 func TestMain(m *testing.M) {

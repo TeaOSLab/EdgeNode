@@ -1,14 +1,15 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package caches_test
 
 import (
 	"fmt"
+	"strconv"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/cespare/xxhash/v2"
 	"github.com/iwind/TeaGo/types"
-	"strconv"
-	"testing"
 )
 
 func TestParseHost(t *testing.T) {

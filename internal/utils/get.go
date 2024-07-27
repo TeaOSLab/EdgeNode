@@ -1,9 +1,10 @@
 package utils
 
 import (
-	"github.com/iwind/TeaGo/types"
 	"reflect"
 	"regexp"
+
+	"github.com/iwind/TeaGo/types"
 )
 
 var RegexpDigitNumber = regexp.MustCompile(`^\d+$`)

@@ -4,6 +4,11 @@ package metrics
 
 import (
 	"encoding/json"
+	"os"
+	"strconv"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
@@ -17,10 +22,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
-	"os"
-	"strconv"
-	"sync"
-	"time"
 )
 
 const MaxQueueSize = 256 // TODO 可以配置，可以在单个任务里配置

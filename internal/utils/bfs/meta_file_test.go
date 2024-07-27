@@ -1,15 +1,16 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs_test
 
 import (
+	"sync"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/iwind/TeaGo/logs"
-	"sync"
-	"testing"
-	"time"
 )
 
 func TestNewMetaFile(t *testing.T) {
@@ -23,7 +24,7 @@ func TestNewMetaFile(t *testing.T) {
 
 	var header, _ = mFile.FileHeader(bfs.Hash("123456"))
 	logs.PrintAsJSON(header, t)
-	//logs.PrintAsJSON(mFile.Headers(), t)
+	// logs.PrintAsJSON(mFile.Headers(), t)
 }
 
 func TestNewMetaFile_Large(t *testing.T) {
@@ -129,7 +130,7 @@ func TestMetaFile_WriteMeta(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	//logs.PrintAsJSON(mFile.Header(hash), t)
+	// logs.PrintAsJSON(mFile.Header(hash), t)
 }
 
 func TestMetaFile_Write(t *testing.T) {

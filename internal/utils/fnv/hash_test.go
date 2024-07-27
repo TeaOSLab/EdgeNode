@@ -3,9 +3,10 @@
 package fnv_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fnv"
 	"github.com/iwind/TeaGo/types"
-	"testing"
 )
 
 func TestHash(t *testing.T) {

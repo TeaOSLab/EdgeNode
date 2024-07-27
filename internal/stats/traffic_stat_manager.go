@@ -1,6 +1,12 @@
 package stats
 
 import (
+	"sort"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -12,11 +18,6 @@ import (
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/maps"
 	"github.com/iwind/TeaGo/types"
-	"sort"
-	"strconv"
-	"strings"
-	"sync"
-	"time"
 )
 
 var SharedTrafficStatManager = NewTrafficStatManager()

@@ -2,10 +2,6 @@ package caches
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
-	"github.com/iwind/TeaGo/logs"
-	"github.com/iwind/TeaGo/rands"
 	"math/rand"
 	"runtime"
 	"runtime/debug"
@@ -13,6 +9,11 @@ import (
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
+	"github.com/iwind/TeaGo/logs"
+	"github.com/iwind/TeaGo/rands"
 )
 
 func TestMemoryStorage_OpenWriter(t *testing.T) {

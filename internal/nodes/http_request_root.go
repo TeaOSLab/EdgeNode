@@ -2,12 +2,6 @@ package nodes
 
 import (
 	"fmt"
-	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
-	"github.com/cespare/xxhash/v2"
-	"github.com/iwind/TeaGo/Tea"
-	"github.com/iwind/TeaGo/logs"
-	"github.com/iwind/TeaGo/types"
 	"io"
 	"io/fs"
 	"mime"
@@ -17,6 +11,13 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+
+	rangeutils "github.com/TeaOSLab/EdgeNode/internal/utils/ranges"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
+	"github.com/cespare/xxhash/v2"
+	"github.com/iwind/TeaGo/Tea"
+	"github.com/iwind/TeaGo/logs"
+	"github.com/iwind/TeaGo/types"
 )
 
 // 文本mime-type列表

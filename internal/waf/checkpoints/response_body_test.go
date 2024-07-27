@@ -2,10 +2,11 @@ package checkpoints
 
 import (
 	"bytes"
-	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"io"
 	"net/http"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 )
 
 func TestResponseBodyCheckpoint_ResponseValue(t *testing.T) {

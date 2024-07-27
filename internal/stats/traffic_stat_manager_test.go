@@ -1,11 +1,12 @@
 package stats
 
 import (
-	"github.com/iwind/TeaGo/rands"
-	"github.com/iwind/TeaGo/types"
 	"math/rand"
 	"runtime"
 	"testing"
+
+	"github.com/iwind/TeaGo/rands"
+	"github.com/iwind/TeaGo/types"
 )
 
 func TestTrafficStatManager_Add(t *testing.T) {

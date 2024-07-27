@@ -1,9 +1,10 @@
 package nodes
 
 import (
-	"github.com/shirou/gopsutil/v3/cpu"
 	"testing"
 	"time"
+
+	"github.com/shirou/gopsutil/v3/cpu"
 )
 
 func TestNodeStatusExecutor_CPU(t *testing.T) {

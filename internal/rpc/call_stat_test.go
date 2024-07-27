@@ -1,10 +1,11 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package rpc_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/rpc"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/rpc"
 )
 
 func TestNewCallStat(t *testing.T) {

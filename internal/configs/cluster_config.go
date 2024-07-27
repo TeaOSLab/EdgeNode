@@ -1,9 +1,10 @@
 package configs
 
 import (
+	"os"
+
 	"github.com/iwind/TeaGo/Tea"
 	"gopkg.in/yaml.v3"
-	"os"
 )
 
 // ClusterConfig 集群配置

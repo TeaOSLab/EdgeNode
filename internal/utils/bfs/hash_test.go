@@ -1,14 +1,15 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package bfs_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
-	"github.com/iwind/TeaGo/assert"
 	"math/rand"
 	"strconv"
 	"strings"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/bfs"
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestCheckHash(t *testing.T) {

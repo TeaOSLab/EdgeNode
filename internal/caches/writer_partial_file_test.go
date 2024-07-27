@@ -3,12 +3,13 @@
 package caches_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/caches"
-	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
-	"github.com/iwind/TeaGo/types"
 	"os"
 	"testing"
 	"time"
+
+	"github.com/TeaOSLab/EdgeNode/internal/caches"
+	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
+	"github.com/iwind/TeaGo/types"
 )
 
 func TestPartialFileWriter_Write(t *testing.T) {

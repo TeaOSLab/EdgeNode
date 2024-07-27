@@ -2,11 +2,12 @@ package caches
 
 import (
 	"errors"
+	"sync"
+	"sync/atomic"
+
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/cespare/xxhash/v2"
 	"github.com/iwind/TeaGo/types"
-	"sync"
-	"sync/atomic"
 )
 
 type MemoryWriter struct {

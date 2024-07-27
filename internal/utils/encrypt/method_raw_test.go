@@ -1,8 +1,9 @@
 package encrypt_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/utils/encrypt"
 )
 
 func TestRawMethod_Encrypt(t *testing.T) {

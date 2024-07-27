@@ -3,8 +3,9 @@
 package compressions
 
 import (
-	"github.com/klauspost/compress/zstd"
 	"io"
+
+	"github.com/klauspost/compress/zstd"
 )
 
 type ZSTDWriter struct {

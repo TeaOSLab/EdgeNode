@@ -1,10 +1,14 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package clock
 
 import (
 	"encoding/binary"
 	"fmt"
+	"net"
+	"runtime"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
@@ -12,9 +16,6 @@ import (
 	executils "github.com/TeaOSLab/EdgeNode/internal/utils/exec"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
 	timeutil "github.com/iwind/TeaGo/utils/time"
-	"net"
-	"runtime"
-	"time"
 )
 
 var hasSynced = false

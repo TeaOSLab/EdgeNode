@@ -2,6 +2,11 @@ package nodes
 
 import (
 	"errors"
+	"net"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/firewalls"
 	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
@@ -14,10 +19,6 @@ import (
 	"github.com/pires/go-proxyproto"
 	"golang.org/x/net/ipv4"
 	"golang.org/x/net/ipv6"
-	"net"
-	"strings"
-	"sync"
-	"time"
 )
 
 const (

@@ -1,14 +1,15 @@
 package waf
 
 import (
+	"io"
+	"net/http"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/utils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/bytepool"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/types"
-	"io"
-	"net/http"
-	"time"
 )
 
 type Post307Action struct {

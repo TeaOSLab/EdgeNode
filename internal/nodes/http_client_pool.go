@@ -4,12 +4,6 @@ import (
 	"context"
 	"crypto/tls"
 	"errors"
-	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
-	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
-	"github.com/cespare/xxhash/v2"
-	"github.com/pires/go-proxyproto"
-	"golang.org/x/net/http2"
 	"net"
 	"net/http"
 	"runtime"
@@ -17,6 +11,13 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
+	"github.com/TeaOSLab/EdgeNode/internal/utils/goman"
+	"github.com/cespare/xxhash/v2"
+	"github.com/pires/go-proxyproto"
+	"golang.org/x/net/http2"
 )
 
 // SharedHTTPClientPool HTTP客户端池单例

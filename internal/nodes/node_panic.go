@@ -6,11 +6,12 @@ package nodes
 
 import (
 	"bytes"
+	"os"
+	"syscall"
+
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/logs"
-	"os"
-	"syscall"
 )
 
 // 处理异常

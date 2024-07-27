@@ -1,10 +1,11 @@
 package waf
 
 import (
+	"net/http"
+
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/types"
-	"net/http"
 )
 
 type GoSetAction struct {

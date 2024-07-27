@@ -4,15 +4,16 @@ package caches_test
 
 import (
 	"encoding/json"
+	"runtime"
+	"testing"
+	"time"
+
 	"github.com/TeaOSLab/EdgeNode/internal/caches"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/fasttime"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/testutils"
 	"github.com/TeaOSLab/EdgeNode/internal/utils/zero"
 	"github.com/iwind/TeaGo/rands"
 	"github.com/iwind/TeaGo/types"
-	"runtime"
-	"testing"
-	"time"
 )
 
 func TestItem_Marshal(t *testing.T) {

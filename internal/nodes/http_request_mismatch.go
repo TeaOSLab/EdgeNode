@@ -1,8 +1,11 @@
-// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2022 GoEdge goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package nodes
 
 import (
+	"net/http"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeutils"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
@@ -10,8 +13,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/utils/ttlcache"
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
 	"github.com/iwind/TeaGo/types"
-	"net/http"
-	"time"
 )
 
 // 域名无匹配情况处理

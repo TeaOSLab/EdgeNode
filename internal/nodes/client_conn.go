@@ -4,6 +4,12 @@ package nodes
 
 import (
 	"fmt"
+	"net"
+	"os"
+	"strings"
+	"sync/atomic"
+	"time"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/nodeconfigs"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/conns"
@@ -17,11 +23,6 @@ import (
 	"github.com/TeaOSLab/EdgeNode/internal/waf"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
-	"net"
-	"os"
-	"strings"
-	"sync/atomic"
-	"time"
 )
 
 // ClientConn 客户端连接

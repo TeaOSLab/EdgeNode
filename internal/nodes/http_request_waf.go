@@ -2,6 +2,10 @@ package nodes
 
 import (
 	"bytes"
+	"io"
+	"net/http"
+	"time"
+
 	iplib "github.com/TeaOSLab/EdgeCommon/pkg/iplibrary"
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs/firewallconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/iplibrary"
@@ -11,9 +15,6 @@ import (
 	wafutils "github.com/TeaOSLab/EdgeNode/internal/waf/utils"
 	"github.com/iwind/TeaGo/Tea"
 	"github.com/iwind/TeaGo/types"
-	"io"
-	"net/http"
-	"time"
 )
 
 // 调用WAF
@@ -296,6 +297,44 @@ func (this *HTTPRequest) checkWAFRequest(firewallPolicy *firewallconfigs.HTTPFir
 								this.disableLog = true
 							} else {
 								this.tags = append(this.tags, "denyProvince")
+							}
+
+							if isDefendMode {
+								return true, false
+							}
+						}
+					}
+
+					if regionConfig.MatchProviderURL(currentURL) {
+						// 检查运营商封禁
+						if !regionConfig.IsAllowedProvider(result.ProviderId()) {
+							this.firewallPolicyId = firewallPolicy.Id
+
+							if isDefendMode {
+								var promptHTML string
+								if len(regionConfig.ProviderHTML) > 0 {
+									promptHTML = regionConfig.ProviderHTML
+								}
+
+								if len(promptHTML) > 0 {
+									var formattedHTML = this.Format(promptHTML)
+									this.writer.Header().Set("Content-Type", "text/html; charset=utf-8")
+									this.writer.Header().Set("Content-Length", types.String(len(formattedHTML)))
+									this.writer.WriteHeader(http.StatusForbidden)
+									_, _ = this.writer.Write([]byte(formattedHTML))
+								} else {
+									this.writeCode(http.StatusForbidden, "The isp has been denied.", "当前运营商禁止访问")
+								}
+
+								// 延时返回，避免攻击
+								time.Sleep(1 * time.Second)
+							}
+
+							// 停止日志
+							if !logDenying {
+								this.disableLog = true
+							} else {
+								this.tags = append(this.tags, "denyProvider")
 							}
 
 							if isDefendMode {

@@ -3,9 +3,10 @@
 package metrics_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	"github.com/TeaOSLab/EdgeNode/internal/metrics"
-	"testing"
 )
 
 func TestNewManager(t *testing.T) {

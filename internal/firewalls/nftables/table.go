@@ -5,9 +5,10 @@ package nftables
 
 import (
 	"errors"
+	"strings"
+
 	nft "github.com/google/nftables"
 	"github.com/iwind/TeaGo/types"
-	"strings"
 )
 
 type Table struct {

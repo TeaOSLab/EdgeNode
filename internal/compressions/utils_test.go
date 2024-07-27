@@ -1,11 +1,12 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package compressions_test
 
 import (
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/compressions"
 	"github.com/iwind/TeaGo/assert"
-	"testing"
 )
 
 func TestGenerateCompressLevel(t *testing.T) {

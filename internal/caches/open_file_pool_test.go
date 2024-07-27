@@ -3,10 +3,11 @@
 package caches_test
 
 import (
-	"github.com/TeaOSLab/EdgeNode/internal/caches"
-	"github.com/iwind/TeaGo/rands"
 	"sync"
 	"testing"
+
+	"github.com/TeaOSLab/EdgeNode/internal/caches"
+	"github.com/iwind/TeaGo/rands"
 )
 
 func TestOpenFilePool_Get(t *testing.T) {

@@ -1,13 +1,14 @@
 package waf
 
 import (
+	"net/http"
+	"net/url"
+	"testing"
+
 	"github.com/TeaOSLab/EdgeNode/internal/waf/checkpoints"
 	"github.com/TeaOSLab/EdgeNode/internal/waf/requests"
 	"github.com/iwind/TeaGo/assert"
 	"github.com/iwind/TeaGo/maps"
-	"net/http"
-	"net/url"
-	"testing"
 )
 
 func TestRule_Init_Single(t *testing.T) {

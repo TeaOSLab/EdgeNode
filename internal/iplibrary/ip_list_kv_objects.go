@@ -1,13 +1,14 @@
-// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2024 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package iplibrary
 
 import (
 	"encoding/binary"
 	"errors"
+	"math"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/rpc/pb"
 	"google.golang.org/protobuf/proto"
-	"math"
 )
 
 type IPItemEncoder[T interface{ *pb.IPItem }] struct {

@@ -3,8 +3,9 @@
 package compressions
 
 import (
-	"github.com/klauspost/compress/gzip"
 	"io"
+
+	"github.com/klauspost/compress/gzip"
 )
 
 type GzipWriter struct {

@@ -1,12 +1,13 @@
-// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cn .
+// Copyright 2023 GoEdge CDN goedge.cdn@gmail.com. All rights reserved. Official site: https://goedge.cloud .
 
 package fsutils_test
 
 import (
-	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 	"sync"
 	"testing"
 	"time"
+
+	fsutils "github.com/TeaOSLab/EdgeNode/internal/utils/fs"
 )
 
 func TestStat(t *testing.T) {

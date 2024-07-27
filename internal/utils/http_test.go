@@ -1,9 +1,10 @@
 package utils
 
 import (
-	"github.com/iwind/TeaGo/assert"
 	"testing"
 	"time"
+
+	"github.com/iwind/TeaGo/assert"
 )
 
 func TestNewHTTPClient(t *testing.T) {

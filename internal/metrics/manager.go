@@ -3,12 +3,13 @@
 package metrics
 
 import (
+	"strconv"
+	"sync"
+
 	"github.com/TeaOSLab/EdgeCommon/pkg/serverconfigs"
 	teaconst "github.com/TeaOSLab/EdgeNode/internal/const"
 	"github.com/TeaOSLab/EdgeNode/internal/events"
 	"github.com/TeaOSLab/EdgeNode/internal/remotelogs"
-	"strconv"
-	"sync"
 )
 
 var SharedManager = NewManager()
